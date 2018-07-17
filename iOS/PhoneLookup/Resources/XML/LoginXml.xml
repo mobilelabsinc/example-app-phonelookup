@@ -1,0 +1,23 @@
+<?xml version="1.0" standalone="yes"?>
+<Login>
+ <User>
+  <username>mobilelabs</username>
+  <password>demo</password>
+ </User>
+ <User>
+  <username>demo002</username>
+  <password>newpass</password>
+ </User>
+ <User>
+  <username>demo003</username>
+  <password>newpass</password>
+ </User>
+ <User>
+  <username>demo004</username>
+  <password>newpass</password>
+ </User>
+ <User>
+   <username>demo005</username>
+   <password>newpass</password>
+ </User>
+</Login>
