@@ -43,7 +43,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
@@ -51,27 +50,25 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
-public class SearchList extends ListActivity{
+public class SearchList extends ListActivity {
 
-    private Context mContext;   
+    private Context mContext;
     private ArrayList<HashMap<String, String>> arraylist = new ArrayList<HashMap<String, String>>();
-    private HashMap<String, String> hashmap;
-    private List<String> list  = new ArrayList<String>();
+    private HashMap<String, String> itemHashMap;
+    private List<String> list = new ArrayList<String>();
 
-    private List<String> sortedList  = new ArrayList<String>();
+    private List<String> sortedList = new ArrayList<String>();
 
-    ArrayList<HashMap<String,String>> list1 = new ArrayList<HashMap<String,String>>();
-    private Bundle bundle;
-    private String SearchbyText;
-    private String spinnerValue;
-    //private String radioValue;
-    private int checkBoxValue;
+    ArrayList<HashMap<String, String>> list1 = new ArrayList<HashMap<String, String>>();
 
-    private String ioscheckBoxValue;
-    private String androidcheckBoxValue;
-    private String bbcheckBoxValue;
-    private String windowscheckBoxValue;
-    //private boolean radioInStock ;
+    private String searchValue;
+    private String manufacturerCompare;
+    private int inStockValueCompare;
+    private Boolean isAndroidChecked;
+    private Boolean isWindowsChecked;
+    private Boolean isIosChecked;
+    private Boolean isBlackBerryChecked;
+
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
@@ -84,245 +81,96 @@ public class SearchList extends ListActivity{
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
-        if (android.os.Build.VERSION.SDK_INT <= 10){
-            requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
-        }
         mContext = this;
+
         /* killer broadcast*/
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.package.ACTION_LOGOUT");
         registerReceiver(Killer, intentFilter);
 
+        Bundle bundle = getIntent().getExtras();
 
+        searchValue = bundle.getString("searchValue");
+        manufacturerCompare = bundle.getString("manufacturer");
+        isAndroidChecked = bundle.getBoolean("isAndroidChecked");
+        isWindowsChecked = bundle.getBoolean("isWindowsChecked");
+        isIosChecked = bundle.getBoolean("isIosChecked");
+        isBlackBerryChecked = bundle.getBoolean("isBlackBerryChecked");
+        inStockValueCompare = bundle.getInt("inStockValue");
 
-        bundle = getIntent().getExtras();
-
-        SearchbyText = bundle.getString("SearchbyText");
-        spinnerValue = bundle.getString("spinnerValue");
-        androidcheckBoxValue = bundle.getString("androidcheckBoxValue");
-        windowscheckBoxValue = bundle.getString("windowscheckBoxValue");        
-        ioscheckBoxValue = bundle.getString("ioscheckBoxValue");
-        bbcheckBoxValue = bundle.getString("bbcheckBoxValue");
-        checkBoxValue = bundle.getInt("radioInStock");
-
-        if(SearchbyText.compareTo("*")==0){         
-            SearchbyText = "";          
+        if (searchValue.compareTo("*") == 0) {
+            searchValue = "";
         }
+
+        String stockValue;
+
 
         arraylist = XMLParser();
+
+
         //here to sort the sortedList data
         Collections.sort(sortedList);
-        //      for(int j=0;j<sortedList.size();j++){
-        //          Collections.sort(sortedList);
-        //          System.out.println(sortedList.get(j));
-        //      }
-        for(int j=0;j<sortedList.size();j++){
-            for(int i=0;i<arraylist.size();i++){
-                hashmap =(HashMap<String, String>) arraylist.get(i);    
-                if(sortedList.get(j).equals(hashmap.get("ItemName").toString()))
-                    if(checkBoxValue==1){
-                        if(spinnerValue.equals("Any")){
-                            if((hashmap.get("ItemName").toString().toLowerCase().startsWith(SearchbyText.toLowerCase())|hashmap.get("ItemID").toString().startsWith(SearchbyText))&&Integer.parseInt(hashmap.get("QtyOnHand").toString())==0&&(hashmap.get("OperatingSystem").toString().startsWith(ioscheckBoxValue)||hashmap.get("OperatingSystem").toString().startsWith(androidcheckBoxValue)||hashmap.get("OperatingSystem").toString().startsWith(bbcheckBoxValue)||hashmap.get("OperatingSystem").toString().startsWith(windowscheckBoxValue))){//QtyOnHand
-                                list.add((String)hashmap.get("ItemName"));                          
-                                HashMap<String,String> item = new HashMap<String,String>();
-                                item.put( "line1",(String)hashmap.get("ItemName"));
-                                item.put( "line2",(String)hashmap.get("ItemID") );
-                                item.put( "line3","Carrier:"+(String)hashmap.get("Carrier") );                          
-                                item.put( "line4","[Out Of Stock]");
 
-                                if(((String)hashmap.get("Price")).indexOf(".")!=-1){
-                                    String[] priceValue =  splitString(".",(String)hashmap.get("Price"));
-                                    item.put( "line5", priceValue[0]);
-                                    item.put( "line6",priceValue[1]+"\nEA");
-                                }
-                                else{
-                                    item.put( "line5", (String)hashmap.get("Price"));
-                                    item.put( "line6","");
-                                }
-                                list1.add( item );
-                            }}else
-                                if((hashmap.get("ItemName").toString().toLowerCase().startsWith(SearchbyText.toLowerCase())|hashmap.get("ItemID").toString().startsWith(SearchbyText))&&hashmap.get("Manufacturer").toString().equals(spinnerValue)&&Integer.parseInt(hashmap.get("QtyOnHand").toString())==0&&(hashmap.get("OperatingSystem").toString().startsWith(ioscheckBoxValue)||hashmap.get("OperatingSystem").toString().startsWith(androidcheckBoxValue)||hashmap.get("OperatingSystem").toString().startsWith(bbcheckBoxValue)||hashmap.get("OperatingSystem").toString().startsWith(windowscheckBoxValue))){//QtyOnHand
+        for (int j = 0; j < sortedList.size(); j++) {
+            for (int i = 0; i < arraylist.size(); i++) {
+                itemHashMap = arraylist.get(i);
 
-                                    //if(hashmap.get("ItemName").toString().startsWith(SearchbyText)&&hashmap.get("Manufacturer").toString().equals(spinnerValue)&&hashmap.get("OperatingSystem").toString().startsWith(radioValue)){//QtyOnHand
-                                    list.add((String)hashmap.get("ItemName"));  
+                if (sortedList.get(j).equals(itemHashMap.get("ItemName"))) {
+                    stockValue = (itemHashMap.get("InStock").equals("Y")) ? "[In Stock]" : "[Out of Stock]";
 
-                                    HashMap<String,String> item = new HashMap<String,String>();
-                                    item.put( "line1",(String)hashmap.get("ItemName"));
-                                    item.put( "line2",(String)hashmap.get("ItemID") );
-                                    item.put( "line3","Carrier:"+(String)hashmap.get("Carrier") );                          
-                                    item.put( "line4","[Out Of Stock]");
+                    list.add(itemHashMap.get("ItemName"));
+                    HashMap<String, String> item = new HashMap<String, String>();
 
-                                    if(((String)hashmap.get("Price")).indexOf(".")!=-1){
-                                        String[] priceValue =  splitString(".",(String)hashmap.get("Price"));
-                                        item.put( "line5", priceValue[0]);
-                                        item.put( "line6",priceValue[1]+"\nEA");
-                                    }
-                                    else{
-                                        item.put( "line5", (String)hashmap.get("Price"));
-                                        item.put( "line6","");
-                                    }
-                                    list1.add( item );
-                                }
-                    }else if(checkBoxValue==0){
-                        if(spinnerValue.equals("Any")){
-                            if((hashmap.get("ItemName").toString().toLowerCase().startsWith(SearchbyText.toLowerCase())|hashmap.get("ItemID").toString().startsWith(SearchbyText))&&Integer.parseInt(hashmap.get("QtyOnHand").toString())>0&&(hashmap.get("OperatingSystem").toString().startsWith(ioscheckBoxValue)||hashmap.get("OperatingSystem").toString().startsWith(androidcheckBoxValue)||hashmap.get("OperatingSystem").toString().startsWith(bbcheckBoxValue)||hashmap.get("OperatingSystem").toString().startsWith(windowscheckBoxValue))){//QtyOnHand
+                    item.put("line1", itemHashMap.get("ItemName"));
+                    item.put("line2", itemHashMap.get("ItemID"));
+                    item.put("line3", "Carrier:" + itemHashMap.get("Carrier"));
+                    item.put("line4", stockValue);
 
-                                list.add((String)hashmap.get("ItemName"));  
-
-                                HashMap<String,String> item = new HashMap<String,String>();
-                                item.put( "line1",(String)hashmap.get("ItemName"));
-                                item.put( "line2",(String)hashmap.get("ItemID") );
-                                item.put( "line3","Carrier:"+(String)hashmap.get("Carrier") );                          
-                                item.put( "line4","[In Stock]");
-
-                                if(((String)hashmap.get("Price")).indexOf(".")!=-1){
-                                    String[] priceValue =  splitString(".",(String)hashmap.get("Price"));
-                                    item.put( "line5", priceValue[0]);
-                                    item.put( "line6",priceValue[1]+"\nEA");
-                                }
-                                else{
-                                    item.put( "line5", (String)hashmap.get("Price"));
-                                    item.put( "line6","");
-                                }
-                                list1.add( item );
-                            }
-                        }else{
-                            if((hashmap.get("ItemName").toString().toLowerCase().startsWith(SearchbyText.toLowerCase())|hashmap.get("ItemID").toString().startsWith(SearchbyText))&&hashmap.get("Manufacturer").toString().equals(spinnerValue)&&Integer.parseInt(hashmap.get("QtyOnHand").toString())>0&&(hashmap.get("OperatingSystem").toString().startsWith(ioscheckBoxValue)||hashmap.get("OperatingSystem").toString().startsWith(androidcheckBoxValue)||hashmap.get("OperatingSystem").toString().startsWith(bbcheckBoxValue)||hashmap.get("OperatingSystem").toString().startsWith(windowscheckBoxValue))){//QtyOnHand
-
-                                list.add((String)hashmap.get("ItemName"));  
-
-                                HashMap<String,String> item = new HashMap<String,String>();
-                                item.put( "line1",(String)hashmap.get("ItemName"));
-                                item.put( "line2",(String)hashmap.get("ItemID") );
-                                item.put( "line3","Carrier:"+(String)hashmap.get("Carrier") );                          
-                                item.put( "line4","[In Stock]");
-
-                                if(((String)hashmap.get("Price")).indexOf(".")!=-1){
-                                    String[] priceValue =  splitString(".",(String)hashmap.get("Price"));
-                                    item.put( "line5", priceValue[0]);
-                                    item.put( "line6",priceValue[1]+"\nEA");
-                                }
-                                else{
-                                    item.put( "line5", (String)hashmap.get("Price"));
-                                    item.put( "line6","");
-                                }
-                                list1.add( item );
-                            }
-                        }
-                    }else if(checkBoxValue==2){
-                        if(spinnerValue.equals("Any")){
-                            if((hashmap.get("ItemName").toString().toLowerCase().startsWith(SearchbyText.toLowerCase())|hashmap.get("ItemID").toString().startsWith(SearchbyText))&&(hashmap.get("OperatingSystem").toString().startsWith(ioscheckBoxValue)||hashmap.get("OperatingSystem").toString().startsWith(androidcheckBoxValue)||hashmap.get("OperatingSystem").toString().startsWith(bbcheckBoxValue)||hashmap.get("OperatingSystem").toString().startsWith(windowscheckBoxValue))){//QtyOnHand
-
-                                list.add((String)hashmap.get("ItemName"));  
-
-                                HashMap<String,String> item = new HashMap<String,String>();
-                                item.put( "line1",(String)hashmap.get("ItemName"));
-                                item.put( "line2",(String)hashmap.get("ItemID") );
-                                item.put( "line3","Carrier:"+(String)hashmap.get("Carrier") );    
-                                if(Integer.parseInt(hashmap.get("QtyOnHand").toString())>0)
-                                    item.put( "line4","[In Stock]");
-                                else if(Integer.parseInt(hashmap.get("QtyOnHand").toString())==0)
-                                    item.put( "line4","[Out Of Stock]");
-
-                                if(((String)hashmap.get("Price")).indexOf(".")!=-1){
-                                    String[] priceValue =  splitString(".",(String)hashmap.get("Price"));
-                                    item.put( "line5", priceValue[0]);
-                                    item.put( "line6",priceValue[1]+"\nEA");
-                                }
-                                else{
-                                    item.put( "line5", (String)hashmap.get("Price"));
-                                    item.put( "line6","");
-                                }
-                                list1.add( item );
-                            }
-                        }else{
-                            if((hashmap.get("ItemName").toString().toLowerCase().startsWith(SearchbyText.toLowerCase())|hashmap.get("ItemID").toString().startsWith(SearchbyText))&&hashmap.get("Manufacturer").toString().equals(spinnerValue)&&(hashmap.get("OperatingSystem").toString().startsWith(ioscheckBoxValue)||hashmap.get("OperatingSystem").toString().startsWith(androidcheckBoxValue)||hashmap.get("OperatingSystem").toString().startsWith(bbcheckBoxValue)||hashmap.get("OperatingSystem").toString().startsWith(windowscheckBoxValue))){//QtyOnHand
-
-                                list.add((String)hashmap.get("ItemName"));  
-
-                                HashMap<String,String> item = new HashMap<String,String>();
-
-                                item.put( "line1",(String)hashmap.get("ItemName"));
-                                item.put( "line2",(String)hashmap.get("ItemID") );
-                                item.put( "line3","Carrier:"+(String)hashmap.get("Carrier") );    
-                                if(Integer.parseInt(hashmap.get("QtyOnHand").toString())>0)
-                                    item.put( "line4","[In Stock]");
-                                else if(Integer.parseInt(hashmap.get("QtyOnHand").toString())==0)
-                                    item.put( "line4","[Out Of Stock]");
-
-                                if(((String)hashmap.get("Price")).indexOf(".")!=-1){
-                                    String[] priceValue =  splitString(".",(String)hashmap.get("Price"));
-                                    item.put( "line5", priceValue[0]);
-                                    item.put( "line6",priceValue[1]+"\nEA");
-                                }
-                                else{
-                                    item.put( "line5", (String)hashmap.get("Price"));
-                                    item.put( "line6","");
-                                }
-                                list1.add( item );
-                            }
-                        }
+                    if (((String) itemHashMap.get("Price")).contains(".")) {
+                        String[] priceValue = splitString(".", itemHashMap.get("Price"));
+                        item.put("line5", priceValue[0]);
+                        item.put("line6", priceValue[1] + "\nEA");
+                    } else {
+                        item.put("line5", itemHashMap.get("Price"));
+                        item.put("line6", "");
                     }
+                    list1.add(item);
 
-
+                }
             }
         }
-        if(list.size()!=0){
+            if (list.size() != 0) {
 
-
-            //          LayoutInflater inflater = (LayoutInflater)getSystemService
-            //            (Context.LAYOUT_INFLATER_SERVICE);
-            //          View view = inflater.inflate(R.layout.header, null, false);
-
-            ListView lv = getListView();        
+            ListView lv = getListView();
             lv.setTextFilterEnabled(true);
             lv.setCacheColorHint(Color.TRANSPARENT);
-            //          lv.addHeaderView(view);
 
-            setListAdapter(new listadapter(this,list1,R.layout.main_item_two_line_row,
-                    new String[] { "line1","line2","line3","line4","line5","line6" },new int[] { R.id.text1, R.id.text2 , R.id.text3,R.id.text4,R.id.text5,R.id.text6}));
+            setListAdapter(new listadapter(this, list1, R.layout.main_item_two_line_row,
+                    new String[]{"line1", "line2", "line3", "line4", "line5", "line6"}, new int[]{R.id.text1, R.id.text2, R.id.text3, R.id.text4, R.id.text5, R.id.text6}));
 
-            if (android.os.Build.VERSION.SDK_INT <= 10){
-                getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.header);
-                TextView headerText =(TextView)findViewById(R.id.header_title);
-                headerText.setText("Results");  
-            }
-            else{
-                setTitle("Results");
-            }
-            /*setListAdapter(new SimpleAdapter( 
-                    this, 
-                    list1,
-                    R.layout.main_item_two_line_row,
-                    new String[] { "line1","line2","line3" },
-                    new int[] { R.id.text1, R.id.text2 , R.id.text3})); */
-            //      setListAdapter(new ArrayAdapter<String>(this, R.layout.list_item, list));//R.layout.list_item
-
-
-
-
+            setTitle("Results");
 
             int[] colors = {0, 0xFFFF0000, 0}; //0xFFFF0000 red for the example //0xFF000000
             lv.setDivider(new GradientDrawable(Orientation.RIGHT_LEFT, colors));
 
             lv.setDividerHeight(2);
-            lv.setOnItemClickListener(new OnItemClickListener() {           
+            lv.setOnItemClickListener(new OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
-                        long arg3) {                             
-                    for(int i=0;i<arraylist.size();i++){
-                        hashmap =(HashMap<String, String>) arraylist.get(i);               
-                        if(list.get(arg2).equals((String) hashmap.get("ItemName"))){
-                            Bundle bundle = new Bundle();              
-                            bundle.putString("ItemName",(String) hashmap.get("ItemName"));  
-                            bundle.putString("ItemID",(String) hashmap.get("ItemID"));
-                            bundle.putString("Description",(String) hashmap.get("Description"));  
-                            bundle.putString("InStock",(String) hashmap.get("InStock"));
-                            bundle.putString("Manufacturer",(String) hashmap.get("Manufacturer"));
-                            bundle.putString("OperatingSystem",(String) hashmap.get("OperatingSystem"));
-                            bundle.putString("Price",(String) hashmap.get("Price"));
-                            bundle.putString("QtyOnHand",(String) hashmap.get("QtyOnHand"));
-                            bundle.putString("Carrier",(String) hashmap.get("Carrier"));
+                                        long arg3) {
+                    for (int i = 0; i < arraylist.size(); i++) {
+                        itemHashMap = (HashMap<String, String>) arraylist.get(i);
+                        if (list.get(arg2).equals((String) itemHashMap.get("ItemName"))) {
+                            Bundle bundle = new Bundle();
+                            bundle.putString("ItemName", (String) itemHashMap.get("ItemName"));
+                            bundle.putString("ItemID", (String) itemHashMap.get("ItemID"));
+                            bundle.putString("Description", (String) itemHashMap.get("Description"));
+                            bundle.putString("InStock", (String) itemHashMap.get("InStock"));
+                            bundle.putString("Manufacturer", (String) itemHashMap.get("Manufacturer"));
+                            bundle.putString("OperatingSystem", (String) itemHashMap.get("OperatingSystem"));
+                            bundle.putString("Price", (String) itemHashMap.get("Price"));
+                            bundle.putString("QtyOnHand", (String) itemHashMap.get("QtyOnHand"));
+                            bundle.putString("Carrier", (String) itemHashMap.get("Carrier"));
                             Intent intent = new Intent();
                             intent.setClass(mContext, ProductDetails.class);
                             intent.putExtras(bundle);
@@ -334,17 +182,17 @@ public class SearchList extends ListActivity{
             });
 
         }
-        else{
+        else {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setMessage("No search results ")
-            .setCancelable(false)
+                    .setCancelable(false)
 
-            .setNegativeButton("OK", new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int id) {
-                    dialog.cancel();
-                    finish();
-                }
-            });
+                    .setNegativeButton("OK", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                            finish();
+                        }
+                    });
             AlertDialog alert = builder.create();
             alert.show();
 
@@ -357,9 +205,10 @@ public class SearchList extends ListActivity{
         super.onDestroy();
         unregisterReceiver(Killer);
     }
-    public BroadcastReceiver Killer= new BroadcastReceiver() {
+
+    public BroadcastReceiver Killer = new BroadcastReceiver() {
         @Override
-        public void onReceive(Context context, Intent intent) {                        
+        public void onReceive(Context context, Intent intent) {
             //At this point you should start the login activity and finish this one
             //          System.out.println("..............searchlist");
             finish();
@@ -369,8 +218,8 @@ public class SearchList extends ListActivity{
     class listadapter extends SimpleAdapter {
 
         public listadapter(Context context,
-                List<? extends Map<String, ?>> data, int resource,
-                        String[] from, int[] to) {
+                           List<? extends Map<String, ?>> data, int resource,
+                           String[] from, int[] to) {
             super(context, data, resource, from, to);
 
             // TODO Auto-generated constructor stub
@@ -380,54 +229,52 @@ public class SearchList extends ListActivity{
         public View getView(int position, View convertView, ViewGroup parent) {
             // TODO Auto-generated method stub
 
-            View v =  super.getView(position, convertView, parent);
-            TextView tv = (TextView)v.findViewById(R.id.text4);
-            Bitmap bitmap_bbOrg = BitmapFactory.decodeResource(getResources(),R.drawable.bb_icon);
-            Bitmap resizedBB = getRoundedCornerBitmap(bitmap_bbOrg,10);
+            View v = super.getView(position, convertView, parent);
+            TextView tv = (TextView) v.findViewById(R.id.text4);
+            Bitmap bitmap_bbOrg = BitmapFactory.decodeResource(getResources(), R.drawable.bb_icon);
+            Bitmap resizedBB = getRoundedCornerBitmap(bitmap_bbOrg, 10);
             /*convert Bitmap to resource */
             BitmapDrawable bb = new BitmapDrawable(resizedBB);
 
-            Bitmap bitmap_andOrg = BitmapFactory.decodeResource(getResources(),R.drawable.and_icon);
-            Bitmap resizedAndroid = getRoundedCornerBitmap(bitmap_andOrg,10);
+            Bitmap bitmap_andOrg = BitmapFactory.decodeResource(getResources(), R.drawable.and_icon);
+            Bitmap resizedAndroid = getRoundedCornerBitmap(bitmap_andOrg, 10);
             /*convert Bitmap to resource */
             BitmapDrawable and = new BitmapDrawable(resizedAndroid);
 
-            Bitmap bitmap_iosOrg = BitmapFactory.decodeResource(getResources(),R.drawable.ios_icon);
-            Bitmap resizedIos = getRoundedCornerBitmap(bitmap_iosOrg,10);
+            Bitmap bitmap_iosOrg = BitmapFactory.decodeResource(getResources(), R.drawable.ios_icon);
+            Bitmap resizedIos = getRoundedCornerBitmap(bitmap_iosOrg, 10);
             /*convert Bitmap to resource */
             BitmapDrawable ios = new BitmapDrawable(resizedIos);
 
-            Bitmap bitmap_winOrg = BitmapFactory.decodeResource(getResources(),R.drawable.win_icon);
-            Bitmap resizedWindows = getRoundedCornerBitmap(bitmap_winOrg,10);
+            Bitmap bitmap_winOrg = BitmapFactory.decodeResource(getResources(), R.drawable.win_icon);
+            Bitmap resizedWindows = getRoundedCornerBitmap(bitmap_winOrg, 10);
             /*convert Bitmap to resource */
             BitmapDrawable win = new BitmapDrawable(resizedWindows);
 
 
+            ImageView image = (ImageView) v.findViewById(R.id.osIcon);
 
-            ImageView image = (ImageView)v.findViewById(R.id.osIcon);
-
-            for(int i=0;i<arraylist.size();i++){
-                hashmap =(HashMap<String, String>) arraylist.get(i);                 
-                if(list.get(position).equals((String) hashmap.get("ItemName"))){              
-                    if(!hashmap.get("QtyOnHand").equals("0")){                      
+            for (int i = 0; i < arraylist.size(); i++) {
+                itemHashMap = (HashMap<String, String>) arraylist.get(i);
+                if (list.get(position).equals((String) itemHashMap.get("ItemName"))) {
+                    if (!itemHashMap.get("QtyOnHand").equals("0")) {
                         tv.setTextColor(Color.GREEN);
-                    }
-                    else{
+                    } else {
                         tv.setTextColor(Color.RED);
                     }
-                    if(hashmap.get("OperatingSystem").startsWith("BlackBerry")){
+                    if (itemHashMap.get("OperatingSystem").startsWith("BlackBerry")) {
                         //                    image.setBackgroundResource(R.drawable.bb_icon);
                         image.setBackgroundDrawable(bb);
                     }
-                    if(hashmap.get("OperatingSystem").startsWith("Android")){
+                    if (itemHashMap.get("OperatingSystem").startsWith("Android")) {
                         //                    image.setBackgroundResource(R.drawable.and_icon);
                         image.setBackgroundDrawable(and);
                     }
-                    if(hashmap.get("OperatingSystem").startsWith("iOS")){//iOS
+                    if (itemHashMap.get("OperatingSystem").startsWith("iOS")) {//iOS
                         //                    image.setBackgroundResource(R.drawable.ios_icon);
                         image.setBackgroundDrawable(ios);
                     }
-                    if(hashmap.get("OperatingSystem").startsWith("Windows")){//iOS
+                    if (itemHashMap.get("OperatingSystem").startsWith("Windows")) {//iOS
                         //                    image.setBackgroundResource(R.drawable.win_icon);
                         image.setBackgroundDrawable(win);
                     }
@@ -462,25 +309,23 @@ public class SearchList extends ListActivity{
         return output;
     }
 
-    public String[] splitString(String separator, String original){
+    public String[] splitString(String separator, String original) {
 
-        Vector<String> nodes = new Vector<String>();                
+        Vector<String> nodes = new Vector<String>();
 
         int index = original.indexOf(separator);
-        while(index>=0) {
-            nodes.addElement( original.substring(0, index) );
-            original = original.substring(index+separator.length());
+        while (index >= 0) {
+            nodes.addElement(original.substring(0, index));
+            original = original.substring(index + separator.length());
             index = original.indexOf(separator);
         }
-        nodes.addElement( original );
+        nodes.addElement(original);
 
         // Create splitted string array
-        String[] result = new String[ nodes.size() ];
-        if( nodes.size()>0 ) 
-        {
-            for(int loop=0; loop<nodes.size(); loop++)
-            {
-                result[loop] = (String)nodes.elementAt(loop);
+        String[] result = new String[nodes.size()];
+        if (nodes.size() > 0) {
+            for (int loop = 0; loop < nodes.size(); loop++) {
+                result[loop] = (String) nodes.elementAt(loop);
                 //System.out.println(result[loop]);
             }
 
@@ -488,43 +333,34 @@ public class SearchList extends ListActivity{
         return result;
     }
 
-    public boolean onCreateOptionsMenu(android.view.Menu menu) {        
-        MenuInflater inflater = getMenuInflater(); 
+    public boolean onCreateOptionsMenu(android.view.Menu menu) {
+        MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_view, menu);
-        return true;       
-    };
+        return true;
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         Intent intent = new Intent();
         // TODO Auto-generated method stub
-        switch(item.getItemId()){
-        case R.id.search:
-            intent.setClass(mContext, SearchScreen.class);          
-            startActivity(intent);
-            return true;
-        case R.id.logout:
-            intent.setClass(mContext, Login.class);
-            startActivity(intent);
-            Intent broadcastIntent = new Intent();
-            broadcastIntent.setAction("com.package.ACTION_LOGOUT");
-            this.sendBroadcast(broadcastIntent);
-            return true;
-        default:
-            return super.onOptionsItemSelected(item);
+        switch (item.getItemId()) {
+            case R.id.search:
+                intent.setClass(mContext, SearchScreen.class);
+                startActivity(intent);
+                return true;
+            case R.id.logout:
+                intent.setClass(mContext, Login.class);
+                startActivity(intent);
+                Intent broadcastIntent = new Intent();
+                broadcastIntent.setAction("com.package.ACTION_LOGOUT");
+                this.sendBroadcast(broadcastIntent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
 
-    /*@Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if ((keyCode == KeyEvent.KEYCODE_BACK)) {
-            arraylist.clear();          
-            hashmap.clear();
-            list.clear();
-            //finish();
-        }
-        return super.onKeyDown(keyCode, event);
-    }*/
+
     @Override
     public boolean onKeyLongPress(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
@@ -537,6 +373,7 @@ public class SearchList extends ListActivity{
         }
         return super.onKeyLongPress(keyCode, event);
     }
+
     @Override
     public boolean onKeyUp(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK && event.isTracking()
@@ -551,90 +388,101 @@ public class SearchList extends ListActivity{
     }
 
 
-    public ArrayList<HashMap<String, String>> XMLParser(){      
-        ArrayList<HashMap<String, String>> arrayList = new ArrayList<HashMap<String, String>>();    
+    public ArrayList<HashMap<String, String>> XMLParser() {
+
+        ArrayList<HashMap<String, String>> arrayList = new ArrayList<HashMap<String, String>>();
+
         try {
-            //URL url = new URL("http://www.androidpeople.com/wp-content/uploads/2010/06/example.xml");
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             DocumentBuilder db = dbf.newDocumentBuilder();
+
             AssetManager assetManager = getAssets();
             InputStream inputStream = assetManager.open("product.xml");
-            Document doc=db.parse(inputStream);
+
+            Document doc = db.parse(inputStream);
             doc.getDocumentElement().normalize();
+
             NodeList nodeList = doc.getElementsByTagName("Items");
-            //          System.out.println("nodelist length..."+nodeList.getLength());
+
             for (int i = 0; i < nodeList.getLength(); i++) {
                 HashMap<String, String> map = new HashMap<String, String>();
 
                 Node node = nodeList.item(i);
 
-                Element fstElmnt = (Element) node;
-
-                NodeList nameList = fstElmnt.getElementsByTagName("ItemID");
-                Element nameElement = (Element) nameList.item(0);
-                nameList = nameElement.getChildNodes();             
-                map.put("ItemID", ((Node) nameList.item(0)).getNodeValue());
-                //              System.out.println("....productname........"+map.get("productname"));                       
-
-                NodeList imageList = fstElmnt.getElementsByTagName("ItemName");
-                Element imageListElement = (Element) imageList.item(0);
-                imageList = imageListElement.getChildNodes();
-                map.put("ItemName",((Node) imageList.item(0)).getNodeValue() );
-                //              System.out.println("....imageurl........"+map.get("imageurl"));
-                sortedList.add(((Node) imageList.item(0)).getNodeValue());
-
-                NodeList producturlList = fstElmnt.getElementsByTagName("Description");
-                Element producturlListElement = (Element) producturlList.item(0);
-                producturlList = producturlListElement.getChildNodes();
-                map.put("Description",((Node) producturlList.item(0)).getNodeValue());
-                //              System.out.println("....producturl........"+map.get("producturl"));
-
-                NodeList websiteList = fstElmnt.getElementsByTagName("InStock");
-                Element websiteElement = (Element) websiteList.item(0);
-                websiteList = websiteElement.getChildNodes();           
-                map.put("InStock", ((Node) websiteList.item(0)).getNodeValue());
-                //              System.out.println("....price........"+map.get("price"));
+                Element phone = (Element) node;
 
 
-                NodeList currencyList = fstElmnt.getElementsByTagName("Manufacturer");
-                Element currencyListElement = (Element) currencyList.item(0);
-                currencyList = currencyListElement.getChildNodes();
-                map.put("Manufacturer",((Node) currencyList.item(0)).getNodeValue() );
-                //              System.out.println("....currency........"+map.get("currency"));
+                NodeList itemIDList = phone.getElementsByTagName("ItemID");
+                Element itemIDElement = (Element) itemIDList.item(0);
+                itemIDList = itemIDElement.getChildNodes();
 
-                NodeList storenameList = fstElmnt.getElementsByTagName("OperatingSystem");
-                Element storenameListElement = (Element) storenameList.item(0);
-                storenameList = storenameListElement.getChildNodes();
-                map.put("OperatingSystem",((Node) storenameList.item(0)).getNodeValue() );
-                //              System.out.println("....storename........"+map.get("storename"));              
+                NodeList itemNameList = phone.getElementsByTagName("ItemName");
+                Element itemNameElement = (Element) itemNameList.item(0);
+                itemNameList = itemNameElement.getChildNodes();
+
+                NodeList descriptionList = phone.getElementsByTagName("Description");
+                Element descriptionElement = (Element) descriptionList.item(0);
+                descriptionList = descriptionElement.getChildNodes();
+
+                NodeList inStockList = phone.getElementsByTagName("InStock");
+                Element inStockElement = (Element) inStockList.item(0);
+                inStockList = inStockElement.getChildNodes();
+
+                NodeList manufacturerList = phone.getElementsByTagName("Manufacturer");
+                Element manufacturerElement = (Element) manufacturerList.item(0);
+                manufacturerList = manufacturerElement.getChildNodes();
+
+                NodeList operatingSystemList = phone.getElementsByTagName("OperatingSystem");
+                Element operatingSystemElement = (Element) operatingSystemList.item(0);
+                operatingSystemList = operatingSystemElement.getChildNodes();
+
+                NodeList quantityList = phone.getElementsByTagName("QtyOnHand");
+                Element quantityElement = (Element) quantityList.item(0);
+                quantityList = quantityElement.getChildNodes();
+
+                NodeList priceList = phone.getElementsByTagName("Price");
+                Element priceElement = (Element) priceList.item(0);
+                priceList = priceElement.getChildNodes();
+
+                NodeList carrierList = phone.getElementsByTagName("Carrier");
+                Element carrierElement = (Element) carrierList.item(0);
+                carrierList = carrierElement.getChildNodes();
+
+                String itemID = itemIDList.item(0).getNodeValue();
+                String itemName = itemNameList.item(0).getNodeValue();
+                String description = descriptionList.item(0).getNodeValue();
+                String inStock = inStockList.item(0).getNodeValue();
+                String manufacturer = manufacturerList.item(0).getNodeValue();
+                String operatingSystem = operatingSystemList.item(0).getNodeValue();
+                String quantity = quantityList.item(0).getNodeValue();
+                String price = priceList.item(0).getNodeValue();
+                String carrier = carrierList.item(0).getNodeValue();
 
 
-                NodeList storenameList1 = fstElmnt.getElementsByTagName("QtyOnHand");
-                Element storenameListElement1 = (Element) storenameList1.item(0);
-                storenameList1 = storenameListElement1.getChildNodes();
-                map.put("QtyOnHand",((Node) storenameList1.item(0)).getNodeValue() );
-                //              System.out.println("....storename........"+map.get("storename"));              
+                if (manufacturerCompare.equals("Any") || manufacturerCompare.equals(manufacturer)) {
+                    if ((inStockValueCompare == 0 && inStock.equals("Y")) || (inStockValueCompare == 1 && inStock.equals("N")) || (inStockValueCompare == 2)) {
+                        if ((isAndroidChecked && operatingSystem.contains("Android")) || (isIosChecked && operatingSystem.contains("iOS")) || (isBlackBerryChecked && operatingSystem.contains("BlackBerry")) || (isWindowsChecked && operatingSystem.contains("Windows")))
+                            if ((itemName.toLowerCase().startsWith(searchValue.toLowerCase())) || (itemID.startsWith(searchValue))) {
 
+                                map.put("ItemID", itemID);
+                                map.put("ItemName", itemName);
+                                map.put("Description", description);
+                                map.put("InStock", inStock);
+                                map.put("Manufacturer", manufacturer);
+                                map.put("OperatingSystem", operatingSystem);
+                                map.put("QtyOnHand", quantity);
+                                map.put("Price", price);
+                                map.put("Carrier", carrier);
 
-                NodeList storenameList2 = fstElmnt.getElementsByTagName("Price");
-                Element storenameListElement2 = (Element) storenameList2.item(0);
-                storenameList2 = storenameListElement2.getChildNodes();
-                map.put("Price",((Node) storenameList2.item(0)).getNodeValue() );
-                //              System.out.println("....storename........"+map.get("storename"));              
+                                arrayList.add(map);
 
-
-
-                NodeList storenameList3 = fstElmnt.getElementsByTagName("Carrier");
-                Element storenameListElement3 = (Element) storenameList3.item(0);
-                storenameList3 = storenameListElement3.getChildNodes();
-                map.put("Carrier",((Node) storenameList3.item(0)).getNodeValue() );
-                //              System.out.println("....storename........"+map.get("storename"));
-
-                arrayList.add(map); 
-
-
+                                sortedList.add(itemName);
+                            }
+                    }
+                }
             }
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             System.out.println("XML Pasing Excpetion = " + e);
         }
 

@@ -2,105 +2,77 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:layout_marginBottom="60dp"
-    android:gravity="center"
-    android:orientation="vertical" >
+    android:gravity="center_horizontal|center"
+    android:orientation="vertical">
 
-    <LinearLayout
-        android:id="@+id/loginScreenLinearLayout1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingBottom="10dp"
-        android:contentDescription="loginScreenLinearLayout1" >
+    <TextView
+        android:id="@+id/usernameText"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:contentDescription="@string/username_label"
+        android:gravity="left|center_vertical"
+        android:text="@string/username" />
 
-        <TextView
-            android:id="@+id/usernameText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="Username Label"
-            android:text="Username "
-            android:textColor="@color/black"
-            android:textSize="15sp" >
-        </TextView>
+    <EditText
+        android:id="@+id/usernameEditText"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/usernameText"
+        android:layout_toRightOf="@+id/usernameText"
+        android:hint="@string/enter_username"
+        android:imeOptions="actionDone"
+        android:inputType="textNoSuggestions"
+        android:singleLine="true"
+        android:text="" />
 
-        <EditText
-            android:id="@+id/usernameEditText"
-            android:layout_width="200dp"
-            android:layout_height="45dp"
-            android:contentDescription="Username Field"
-            android:hint="Enter Username"
-            android:imeOptions="actionDone"
-            android:text=""
-            android:textColor="@color/black" >
-        </EditText>
-    </LinearLayout>
+    <TextView
+        android:id="@+id/passwordText"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/usernameText"
+        android:contentDescription="@string/passwordtext"
+        android:gravity="left|center_vertical"
+        android:text="@string/password" />
 
-    <LinearLayout
-        android:id="@+id/loginScreenLinearLayout2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/loginScreenLinearLayout1"
-        android:contentDescription="loginScreenLinearLayout2" >
+    <EditText
+        android:id="@+id/passwordEditText"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/usernameEditText"
+        android:layout_toEndOf="@+id/passwordText"
+        android:layout_toRightOf="@+id/passwordText"
+        android:hint="@string/enter_password"
+        android:imeOptions="actionDone"
+        android:inputType="textPassword"
+        android:singleLine="true" />
 
-        <TextView
-            android:id="@+id/passwordText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Password  "
-            android:textColor="@color/black"
-            android:textSize="15sp"
-            android:contentDescription="passwordText" >
-        </TextView>
+    <CheckBox
+        android:id="@+id/rememberMe"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/passwordEditText"
+        android:layout_toRightOf="@+id/passwordText"
+        android:checked="false"
+        android:contentDescription="@string/rememberme"
+        android:text="@string/remember_me" />
 
-        <EditText
-            android:id="@+id/passwordEditText"
-            android:layout_width="200dp"
-            android:layout_height="45dp"
-            android:hint="Enter Password"
-            android:imeOptions="actionDone"
-            android:password="true"
-            android:textColor="@color/black"
-            android:contentDescription="passwordEditText" >
-        </EditText>
-    </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/loginScreenLinearLayout3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/loginScreenLinearLayout2"
-        android:paddingLeft="72dp"
-        android:contentDescription="loginScreenLinearLayout3" >
-
-        <CheckBox
-            android:id="@+id/rememberMe"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="false"
-            android:text="Remember Me"
-            android:textColor="@color/black"
-            android:textSize="15sp"
-            android:contentDescription="rememberMe" >
-        </CheckBox>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/loginScreenLinearLayout3"
-        android:paddingLeft="90dp"
-        android:contentDescription="loginScreenLinearLayout3" >
-
-        <Button
-            android:id="@+id/loginButton"
-            android:layout_width="100dp"
-            android:layout_height="35dp"
-            android:layout_below="@id/loginScreenLinearLayout3"
-            android:text="Sign In"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:contentDescription="loginButton" >
-        </Button>
-    </LinearLayout>
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_alignEnd="@+id/passwordEditText"
+        android:layout_alignLeft="@+id/passwordText"
+        android:layout_alignRight="@+id/passwordEditText"
+        android:layout_alignStart="@+id/passwordText"
+        android:layout_alignWithParentIfMissing="false"
+        android:layout_below="@+id/rememberMe"
+        android:layout_centerHorizontal="false"
+        android:layout_centerInParent="false"
+        android:layout_centerVertical="true"
+        android:contentDescription="@string/loginbutton"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="@string/sign_in" />
 
 </RelativeLayout>

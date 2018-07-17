@@ -1,0 +1,25 @@
+<resources>
+    <style name="AppTheme" parent="android:Theme.Light">
+        <item name="android:textColor">#ff000000</item>
+        <item name="android:buttonStyle">@style/AppButton</item>
+        <item name="android:editTextStyle">@style/AppEditText</item>
+        <item name="android:textViewStyle">@style/AppTextView</item>
+
+    </style>
+
+    <style name="AppButton" parent="@android:style/Widget.Button">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@color/red</item>
+    </style>
+
+    <style name="AppEditText" parent="@android:style/Widget.EditText">
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
+    <style name="AppTextView" parent="@android:style/Widget.TextView">
+        <item name="android:textColor">#ff000000</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:gravity">left|center_vertical</item>
+    </style>
+</resources>

@@ -1,227 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/searchscreenRelativeLayout"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:gravity="center_horizontal|center"
     android:orientation="vertical"
-    android:contentDescription="searchscreenRelativeLayout" >
+    android:contentDescription="Search Screen RelativeLayout" >
 
-    <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent" >
+    <TextView
+        android:id="@+id/itemNameText"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:text="@string/item_name"
+        android:contentDescription="@string/item_name_label" >
+    </TextView>
 
-        <LinearLayout
-            android:id="@+id/searchLinearLayout"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:orientation="vertical"
-            android:contentDescription="searchLinearLayout" >
+    <EditText
+        android:id="@+id/itemNameEditText"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/itemNameText"
+        android:layout_toRightOf="@+id/itemNameText"
+        android:hint="@string/enter_item_details"
+        android:imeOptions="actionDone"
+        android:inputType="text"
+        android:singleLine="true" />
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="35dp"
-                android:focusableInTouchMode="true"
-                android:paddingLeft="5dp" >
+    <TextView
+        android:id="@+id/manufacturerText"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/itemNameText"
+        android:text="MFGR"
+        android:contentDescription="criteria2Text" />
 
-                <TextView
-                    android:id="@+id/criteria1Text"
-                    android:layout_width="97dp"
-                    android:layout_height="wrap_content"
-                    android:text="Item Name"
-                    android:textColor="@color/white"
-                    android:contentDescription="criteria1Text" >
-                </TextView>
+    <Spinner
+        android:id="@+id/manufacturerSpinner"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/itemNameEditText"
+        android:layout_toEndOf="@+id/manufacturerText"
+        android:layout_toRightOf="@+id/manufacturerText"
+        android:contentDescription="searchSpinner" />
 
-                <EditText
-                    android:id="@+id/criteria1EditText"
-                    android:layout_width="205dp"
-                    android:layout_height="45dp"
-                    android:layout_marginLeft="15dp"
-                    android:hint="Enter Item Name or ID"
-                    android:imeOptions="actionDone"
-                    android:contentDescription="criteria1EditText" >
-                </EditText>
-            </LinearLayout>
+    <CheckBox
+        android:id="@+id/osIosCheckbox"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/manufacturerSpinner"
+        android:text="iOS"
+        android:contentDescription="osIosCheckbox" >
+    </CheckBox>
 
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:paddingLeft="5dp" >
+    <CheckBox
+        android:id="@+id/osAndroidCheckbox"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/manufacturerSpinner"
+        android:layout_toEndOf="@+id/osIosCheckbox"
+        android:layout_toRightOf="@+id/osIosCheckbox"
+        android:checked="true"
+        android:text="Android"
+        android:contentDescription="osAndroidCheckbox" >
+    </CheckBox>
 
-                <TextView
-                    android:id="@+id/criteria2Text"
-                    android:layout_width="97dp"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:text="Manufacturer"
-                    android:textColor="@color/white"
-                    android:contentDescription="criteria2Text" >
-                </TextView>
+    <CheckBox
+        android:id="@+id/osBlackBerryCheckbox"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/osIosCheckbox"
+        android:text="BlackBerry"
+        android:contentDescription="osBlackBerryCheckbox" >
+    </CheckBox>
 
-                <Spinner
-                    android:id="@+id/searchSpinner"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="15dp"
-                    android:layout_toRightOf="@id/criteria2Text"
-                    android:contentDescription="searchSpinner"></Spinner>
-            </RelativeLayout>
+    <CheckBox
+        android:id="@+id/osWindowsCheckbox"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/osAndroidCheckbox"
+        android:layout_toEndOf="@+id/osBlackBerryCheckbox"
+        android:layout_toRightOf="@+id/osBlackBerryCheckbox"
+        android:text="Windows"
+        android:contentDescription="osWindowsCheckbox" >
+    </CheckBox>
 
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="2dip"
-                android:background="#FF909090" >
-            </View>
-
-            <TextView
-                android:id="@+id/divider1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Operating System"
-                android:textColor="@color/white"
-                android:textSize="13sp"
-                android:textStyle="italic|bold"
-                android:contentDescription="divider1" >
-            </TextView>
-
-            <RelativeLayout
-                android:id="@+id/searchRelativeLayout1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:contentDescription="searchRelativeLayout1" >
-
-                <CheckBox
-                    android:id="@+id/criteria3RadioButton3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="iOS"
-                    android:textColor="@color/white"
-                    android:contentDescription="criteria3RadioButton3" >
-                </CheckBox>
-
-                <CheckBox
-                    android:id="@+id/criteria3RadioButton4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/criteria3RadioButton3"
-                    android:text="BlackBerry"
-                    android:textColor="@color/white"
-                    android:contentDescription="criteria3RadioButton4" >
-                </CheckBox>
-
-                <CheckBox
-                    android:id="@+id/criteria3RadioButton1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/criteria3RadioButton4"
-                    android:checked="true"
-                    android:text="Android"
-                    android:textColor="@color/white"
-                    android:contentDescription="criteria3RadioButton1" >
-                </CheckBox>
-
-                <CheckBox
-                    android:id="@+id/criteria3RadioButton2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/criteria3RadioButton3"
-                    android:layout_toRightOf="@id/criteria3RadioButton4"
-                    android:text="Windows"
-                    android:textColor="@color/white"
-                    android:contentDescription="criteria3RadioButton2" >
-                </CheckBox>
-            </RelativeLayout>
-
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="2dip"
-                android:background="#FF909090" >
-            </View>
-
-            <TextView
-                android:id="@+id/divider2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Inventory"
-                android:textColor="@color/white"
-                android:textSize="13sp"
-                android:textStyle="italic|bold"
-                android:contentDescription="divider2" >
-            </TextView>
-
-            <RelativeLayout
-                android:id="@+id/searchRelativeLayout2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:contentDescription="searchRelativeLayout1" >
-
-                <RadioGroup
-                    android:id="@+id/criteria4RadioGroup"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:contentDescription="criteria4RadioGroup" >
-
-                    <RadioButton
-                        android:id="@+id/criteria4RadioButton3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:checked="true"
-                        android:text="All"
-                        android:textColor="@color/white"
-                        android:contentDescription="criteria4RadioButton3" >
-                    </RadioButton>
-
-                    <RadioButton
-                        android:id="@+id/criteria4RadioButton1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="In Stock"
-                        android:textColor="@color/white"
-                        android:contentDescription="criteria4RadioButton1" >
-                    </RadioButton>
-
-                    <RadioButton
-                        android:id="@+id/criteria4RadioButton2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Out Of Stock"
-                        android:textColor="@color/white"
-                        android:contentDescription="criteria4RadioButton2" >
-                    </RadioButton>
-                </RadioGroup>
-            </RelativeLayout>
-
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="2dip"
-                android:background="#FF909090" />
-
-            <Button
-                android:id="@+id/searchButton"
-                android:layout_width="100dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:text="Search"
-                android:textColor="#fff"
-                android:textStyle="bold"
-                android:contentDescription="searchButton" >
-            </Button>
-        </LinearLayout>
-    </ScrollView>
-
-    <ImageView
+    <RadioGroup
+        android:id="@+id/inventoryRadioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:visibility="invisible" />
+        android:layout_below="@id/osWindowsCheckbox"
+        android:orientation="vertical"
+        android:contentDescription="inventoryRadioGroup" >
+
+        <RadioButton
+            android:id="@+id/inventoryAllRadioButton"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:checked="true"
+            android:text="All"
+            android:contentDescription="inventoryAllRadioButton" >
+        </RadioButton>
+
+        <RadioButton
+            android:id="@+id/inventoryInStockRadioButton"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:text="In Stock"
+            android:contentDescription="inventoryInStockRadioButton" >
+        </RadioButton>
+
+        <RadioButton
+            android:id="@+id/inventoryOutOfStockRadioButton"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:text="Out Of Stock"
+            android:contentDescription="inventoryOutOfStockRadioButton" >
+        </RadioButton>
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/searchButton"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_alignEnd="@+id/itemNameEditText"
+        android:layout_alignLeft="@+id/itemNameText"
+        android:layout_alignRight="@+id/itemNameEditText"
+        android:layout_alignStart="@+id/itemNameText"
+        android:layout_alignWithParentIfMissing="false"
+        android:layout_below="@+id/inventoryRadioGroup"
+        android:layout_centerHorizontal="false"
+        android:layout_centerInParent="false"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="Search"
+        android:contentDescription="searchButton" />
 
 </RelativeLayout>
