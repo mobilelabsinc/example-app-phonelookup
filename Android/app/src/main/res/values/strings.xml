@@ -3,4 +3,20 @@
     <string name="app_name">Phone Lookup</string>
     <string name="Username">mobilelabs</string>
     <string name="Password">demo</string>
+    <string name="enter_username">Enter Username</string>
+    <string name="username">Username</string>
+    <string name="username_label">Username Label</string>
+    <string name="username_field">Username Field</string>
+    <string name="passwordtext">passwordText</string>
+    <string name="password">Password</string>
+    <string name="passwordedittext">passwordEditText</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="remember_me">Remember Me</string>
+    <string name="rememberme">rememberMe</string>
+    <string name="loginbutton">loginButton</string>
+    <string name="sign_in">Sign In</string>
+    <string name="item_name">Item Name</string>
+    <string name="item_name_label">Item Name Label</string>
+    <string name="enter_item_details">Enter Item Details</string>
+    <string name="item_details_edit_text">Item Details Edit Text</string>
 </resources>

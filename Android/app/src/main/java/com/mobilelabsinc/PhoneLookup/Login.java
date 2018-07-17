@@ -10,7 +10,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.Window;
+
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -18,13 +18,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class Login extends Activity {
-    String stringXmlContent;
     Context mContext;
     EditText Username;
     EditText Password;
+
     public static final String PREFS_NAME = "com.mobilelabsinc.PhoneLookup_preferences";
     private static SharedPreferences prefs;
     private SharedPreferences.Editor spe;
+
     private String KEY_Username = "USERNAME";
     private String KEY_Password = "PASSWORD";
     private String KEY_Remember = "REMEMBER";
