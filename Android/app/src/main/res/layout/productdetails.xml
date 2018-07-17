@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scrollY="10px" >
+
+        <TableLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="ProductDetailsTableLayout" >
+
+            <TableRow android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="100px"
+                    android:layout_height="wrap_content"
+                    android:text="Item Name "
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/productNameText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text=""
+                    android:contentDescription="productNameText" />
+            </TableRow>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="5dip" />
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="100px"
+                    android:layout_height="wrap_content"
+                    android:text="Item ID "
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/itemIdText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text=""
+                    android:contentDescription="itemIdText" />
+            </TableRow>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="5dip" />
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="100px"
+                    android:layout_height="wrap_content"
+                    android:text="In Stock "
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/itemInStockText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text=""
+                    android:contentDescription="itemInStockText" />
+            </TableRow>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="5dip" />
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="100px"
+                    android:layout_height="wrap_content"
+                    android:text="Manufacturer "
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/itemManufacturerText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text=""
+                    android:contentDescription="itemManufacturerText" />
+            </TableRow>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="5dip" />
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="100px"
+                    android:layout_height="wrap_content"
+                    android:text="Operating System"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/itemOperatingSystemText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text=""
+                    android:contentDescription="itemOperatingSystemText" />
+            </TableRow>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="5dip" />
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="100px"
+                    android:layout_height="wrap_content"
+                    android:text="Description "
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/productDescriptionText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text=""
+                    android:contentDescription="productDescriptionText" />
+            </TableRow>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="5dip" />
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="100px"
+                    android:layout_height="wrap_content"
+                    android:text="Price "
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/productPriceText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text=""
+                    android:contentDescription="productPriceText" />
+            </TableRow>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="5dip" />
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="100px"
+                    android:layout_height="wrap_content"
+                    android:text="QtyOnHand "
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/productQtyOnHandText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text=""
+                    android:contentDescription="productQtyOnHandText" >
+                </TextView>
+            </TableRow>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="5dip" />
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="100px"
+                    android:layout_height="wrap_content"
+                    android:text="Carrier "
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/productCarrierText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text=""
+                    android:contentDescription="productCarrierText" />
+            </TableRow>
+        </TableLayout>
+    </ScrollView>
+
+</TableLayout>
