@@ -34,8 +34,12 @@
         <item name="android:gravity">left|center_vertical</item>
     </style>
 
+    <style name="AppThemeProductDetailsTitleHeader" parent="@android:style/Widget.TextView">
+        <item name="android:background">@color/mobile_labs_dark_blue</item>
+    </style>
+
     <style name="AppThemeProductDetailsTitle" parent="@android:style/Widget.TextView">
-        <item name="android:textColor">@color/mobile_labs_dark_blue</item>
+        <item name="android:textColor">@color/white</item>
         <item name="android:textSize">30sp</item>
         <item name="android:textStyle">bold</item>
     </style>
