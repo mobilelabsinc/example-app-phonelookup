@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Vector;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -82,7 +81,7 @@ public class SearchResults extends AppCompatActivity {
                 searchValue = "";
             }
 
-            searchResultsList = XMLParser();
+            searchResultsList = buildSearchResultsList();
 
             for (int i = 0; i < searchResultsList.size(); i++) {
                 itemHashMap = searchResultsList.get(i);
@@ -97,7 +96,7 @@ public class SearchResults extends AppCompatActivity {
                 item.put("InStock", stockValue);
 
                 if (itemHashMap.get("Price").contains(".")) {
-                    String[] priceValue = splitString(itemHashMap.get("Price"));
+                    String[] priceValue = itemHashMap.get("Price").split("\\.");
                     item.put("Price", priceValue[0]);
                     item.put("PriceUnits", priceValue[1] + "\nEA");
                 } else {
@@ -217,30 +216,6 @@ public class SearchResults extends AppCompatActivity {
 
     }
 
-    private String[] splitString(String original) {
-
-        Vector<String> nodes = new Vector<>();
-
-        int index = original.indexOf(".");
-        while (index >= 0) {
-            nodes.addElement(original.substring(0, index));
-            original = original.substring(index + ".".length());
-            index = original.indexOf(".");
-        }
-        nodes.addElement(original);
-
-        // Create splitted string array
-        String[] result = new String[nodes.size()];
-        if (nodes.size() > 0) {
-            for (int loop = 0; loop < nodes.size(); loop++) {
-                result[loop] = nodes.elementAt(loop);
-                //System.out.println(result[loop]);
-            }
-
-        }
-        return result;
-    }
-
     public boolean onCreateOptionsMenu(android.view.Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_view, menu);
@@ -293,7 +268,7 @@ public class SearchResults extends AppCompatActivity {
     }
 
 
-    private ArrayList<HashMap<String, String>> XMLParser() {
+    private ArrayList<HashMap<String, String>> buildSearchResultsList() {
 
         ArrayList<HashMap<String, String>> arrayList = new ArrayList<>();
 
