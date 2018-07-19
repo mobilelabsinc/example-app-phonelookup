@@ -3,11 +3,7 @@
     <Items>
         <ItemID>10000146545</ItemID>
         <ItemName>Thunderbolt</ItemName>
-        <Description>You live in the future. Here’s an idea: a phone that’s right there with you.
-            It’s got lightning–fast Verizon® 4G LTE and a next–generation processor so you can do
-            more with your phone, in more places. It even boots in seconds so you never have to
-            wait. You might find your computer gathering dust.
-        </Description>
+        <Description>You live in the future. Here’s an idea: a phone that’s right there with you. It’s got lightning–fast Verizon® 4G LTE and a next–generation processor so you can do more with your phone, in more places. It even boots in seconds so you never have to wait. You might find your computer gathering dust.</Description>
         <InStock>Y</InStock>
         <Manufacturer>HTC</Manufacturer>
         <OperatingSystem>Android</OperatingSystem>
@@ -18,9 +14,7 @@
     <Items>
         <ItemID>10000123456</ItemID>
         <ItemName>iPhone 3GS</ItemName>
-        <Description>iPhone 3GS is a revolutionary phone, a great widescreen iPod, and a
-            breakthrough Internet device in one. And with tens of thousands of apps from the App
-            Store, it can do just about anything.
+        <Description>iPhone 3GS is a revolutionary phone, a great widescreen iPod, and a breakthrough Internet device in one. And with tens of thousands of apps from the App Store, it can do just about anything.
         </Description>
         <InStock>Y</InStock>
         <Manufacturer>Apple</Manufacturer>
@@ -32,11 +26,7 @@
     <Items>
         <ItemID>10000314654</ItemID>
         <ItemName>iPhone 4</ItemName>
-        <Description>iPhone 4 continues to set the standard with its stunning Retina display,
-            powerful A4 chip, and long battery life. And with the world's largest selection of
-            mobile apps on the
-            App store, there's almost no limit to what iPhone 4 can do.
-        </Description>
+        <Description>iPhone 4 continues to set the standard with its stunning Retina display, powerful A4 chip, and long battery life. And with the world's largest selection of mobile apps on the App store, there's almost no limit to what iPhone 4 can do.</Description>
         <InStock>Y</InStock>
         <Manufacturer>Apple</Manufacturer>
         <OperatingSystem>iOS</OperatingSystem>
@@ -47,13 +37,7 @@
     <Items>
         <ItemID>10000896512</ItemID>
         <ItemName>iPad</ItemName>
-        <Description>The Apple iPad is the latest in tablet technology delivering utility for audio
-            and visual media consumption, including but not limited to books, video, music, games,
-            and web content. The iPad is a streamlined tablet computer that provides easy navigation
-            and control via a multi-touch display. The device runs on the iOS mobile operating
-            platform. It also connects with a wide selection of applications, as well as iPhone
-            applications, which are distributed via the online store 'the app store'.
-        </Description>
+        <Description>The Apple iPad is the latest in tablet technology delivering utility for audio and visual media consumption, including but not limited to books, video, music, games, and web content. The iPad is a streamlined tablet computer that provides easy navigation and control via a multi-touch display. The device runs on the iOS mobile operating platform. It also connects with a wide selection of applications, as well as iPhone applications, which are distributed via the online store 'the app store'.</Description>
         <InStock>Y</InStock>
         <Manufacturer>Apple</Manufacturer>
         <OperatingSystem>iOS</OperatingSystem>
@@ -64,10 +48,7 @@
     <Items>
         <ItemID>10000128766</ItemID>
         <ItemName>iPad 2</ItemName>
-        <Description>Once you pick up iPad 2, it’ll be hard to put down. That’s the idea behind the
-            all-new design. It’s 33 percent thinner and up to 15 percent lighter, so it feels even
-            more comfortable in your hands.
-        </Description>
+        <Description>Once you pick up iPad 2, it’ll be hard to put down. That’s the idea behind the all-new design. It’s 33 percent thinner and up to 15 percent lighter, so it feels even more comfortable in your hands.</Description>
         <InStock>N</InStock>
         <Manufacturer>Apple</Manufacturer>
         <OperatingSystem>iOS</OperatingSystem>
@@ -78,10 +59,7 @@
     <Items>
         <ItemID>10000456434</ItemID>
         <ItemName>Droid 3</ItemName>
-        <Description>You're going places, and DROID 3 by Motorola can take you there. With
-            incredible dual-core speed and brilliant qHD display, you're making a big Android
-            smartphone statement.
-        </Description>
+        <Description>You're going places, and DROID 3 by Motorola can take you there. With incredible dual-core speed and brilliant qHD display, you're making a big Android smartphone statement.</Description>
         <InStock>Y</InStock>
         <Manufacturer>Motorola</Manufacturer>
         <OperatingSystem>Android</OperatingSystem>
@@ -92,11 +70,7 @@
     <Items>
         <ItemID>10000784373</ItemID>
         <ItemName>Droid Charge</ItemName>
-        <Description>At your command: a 1GHz processor and a 4G LTE network that puts all others to
-            shame. Download. Upload. Stream. Browse. Droid Charge makes you a wait–time–vanquishing
-            velociraptor, an electromagnet of media –– willing it all into the palm of your hand
-            almost as fast as you can say “You’re mine.
-        </Description>
+        <Description>At your command: a 1GHz processor and a 4G LTE network that puts all others to shame. Download. Upload. Stream. Browse. Droid Charge makes you a wait–time–vanquishing velociraptor, an electromagnet of media –– willing it all into the palm of your hand almost as fast as you can say “You’re mine.</Description>
         <InStock>Y</InStock>
         <Manufacturer>Samsung</Manufacturer>
         <OperatingSystem>Android</OperatingSystem>
@@ -107,15 +81,7 @@
     <Items>
         <ItemID>10000463652</ItemID>
         <ItemName>Curve</ItemName>
-        <Description>Go places with the new and streamline BlackBerry® Curve™ 3G 9330 smartphone.
-            Chat with friends, email colleagues, share pictures, and listen to your favorite tunes —
-            it’s all within reach! Featuring WiFi technology, a 2MP camera, BlackBerry push
-            technology, VZ Navigator™, Visual Voice Mail, V CAST Music w/Rhapsody and V CAST Video
-            on Demand, Mobile Broadband Connect and support for popular apps like Facebook®,
-            MySpace®, and Flickr™, this smartphone gives you the power to do more of the things that
-            matter in your life. Take your life with you, almost anywhere you go with the new
-            BlackBerry Curve 9330 smartphone.
-        </Description>
+        <Description>Go places with the new and streamline BlackBerry® Curve™ 3G 9330 smartphone. Chat with friends, email colleagues, share pictures, and listen to your favorite tunes — it’s all within reach! Featuring WiFi technology, a 2MP camera, BlackBerry push technology, VZ Navigator™, Visual Voice Mail, V CAST Music w/Rhapsody and V CAST Video on Demand, Mobile Broadband Connect and support for popular apps like Facebook®, MySpace®, and Flickr™, this smartphone gives you the power to do more of the things that matter in your life. Take your life with you, almost anywhere you go with the new BlackBerry Curve 9330 smartphone.</Description>
         <InStock>N</InStock>
         <Manufacturer>RIM</Manufacturer>
         <OperatingSystem>BlackBerry</OperatingSystem>
@@ -126,10 +92,7 @@
     <Items>
         <ItemID>10000124563</ItemID>
         <ItemName>EVO Shift</ItemName>
-        <Description>It fits comfortably in your pocket. But with so many reasons to keep it out, it
-            might not get the chance. With an 800 MHz processor on Sprint's 4G network, you've got
-            more brainpower on top of bandwidth than you'll know what to do with.
-        </Description>
+        <Description>It fits comfortably in your pocket. But with so many reasons to keep it out, it might not get the chance. With an 800 MHz processor on Sprint's 4G network, you've got more brainpower on top of bandwidth than you'll know what to do with.</Description>
         <InStock>Y</InStock>
         <Manufacturer>HTC</Manufacturer>
         <OperatingSystem>Android</OperatingSystem>
@@ -140,12 +103,7 @@
     <Items>
         <ItemID>10000148222</ItemID>
         <ItemName>Arrive</ItemName>
-        <Description>Surf the Web, view pictures, play games, and immerse yourself in apps with a
-            brilliant 3.6-inch touch screen. The screen tilts up for even better viewing when you
-            slide out the soft-touch keyboard. Visit the HTC Hub for fun and handy apps to take
-            notes, touch up your vacation pictures, follow your stocks, see the weather in 3-D, and
-            more.
-        </Description>
+        <Description>Surf the Web, view pictures, play games, and immerse yourself in apps with a brilliant 3.6-inch touch screen. The screen tilts up for even better viewing when you slide out the soft-touch keyboard. Visit the HTC Hub for fun and handy apps to take notes, touch up your vacation pictures, follow your stocks, see the weather in 3-D, and more.</Description>
         <InStock>Y</InStock>
         <Manufacturer>HTC</Manufacturer>
         <OperatingSystem>Windows 7</OperatingSystem>
@@ -156,10 +114,7 @@
     <Items>
         <ItemID>10000272578</ItemID>
         <ItemName>Sidekick</ItemName>
-        <Description>The T-Mobile Sidekick® makes a triumphant return as a high-performance,
-            Android™-powered smartphone running at blazing-fast speeds on America’s Largest 4G
-            Network™.
-        </Description>
+        <Description>The T-Mobile Sidekick® makes a triumphant return as a high-performance, Android™-powered smartphone running at blazing-fast speeds on America’s Largest 4G Network™.</Description>
         <InStock>N</InStock>
         <Manufacturer>T-Mobile</Manufacturer>
         <OperatingSystem>Android</OperatingSystem>
@@ -170,11 +125,7 @@
     <Items>
         <ItemID>10000425424</ItemID>
         <ItemName>HD7</ItemName>
-        <Description>Introducing the HTC HD7, a new Windows® Phone designed to bring together
-            everything you care about most—while making it all easier and faster. Exclusively from
-            T-Mobile, the HD7 includes great entertainment features that bring you more play and
-            less pause.
-        </Description>
+        <Description>Introducing the HTC HD7, a new Windows® Phone designed to bring together everything you care about most—while making it all easier and faster. Exclusively from T-Mobile, the HD7 includes great entertainment features that bring you more play and less pause.</Description>
         <InStock>Y</InStock>
         <Manufacturer>HTC</Manufacturer>
         <OperatingSystem>Windows 7</OperatingSystem>
@@ -185,11 +136,7 @@
     <Items>
         <ItemID>10000458383</ItemID>
         <ItemName>Bold 9780</ItemName>
-        <Description>Built with BlackBerry® 6, the latest BlackBerry smartphone from T-Mobile is
-            bolder than ever before, with a stylish look and fluid feel, fast-loading tabbed
-            browsing, and simultaneous multi-platform updates and postings of all things social. The
-            BlackBerry Bold 9780 brings balance to work, life, family, and play.
-        </Description>
+        <Description>Built with BlackBerry® 6, the latest BlackBerry smartphone from T-Mobile is bolder than ever before, with a stylish look and fluid feel, fast-loading tabbed browsing, and simultaneous multi-platform updates and postings of all things social. The BlackBerry Bold 9780 brings balance to work, life, family, and play.</Description>
         <InStock>N</InStock>
         <Manufacturer>RIM</Manufacturer>
         <OperatingSystem>BlackBerry</OperatingSystem>
@@ -200,10 +147,7 @@
     <Items>
         <ItemID>10000874755</ItemID>
         <ItemName>Optimus</ItemName>
-        <Description>The Optimus S features the latest Android innovation and the ability to
-            customize your experience with Sprint ID. Move from item to item and message faster with
-            the 3.2-inch capacitive touchscreen and virtual QWERTY.
-        </Description>
+        <Description>The Optimus S features the latest Android innovation and the ability to customize your experience with Sprint ID. Move from item to item and message faster with the 3.2-inch capacitive touchscreen and virtual QWERTY.</Description>
         <InStock>Y</InStock>
         <Manufacturer>LG</Manufacturer>
         <OperatingSystem>Android</OperatingSystem>
@@ -214,10 +158,7 @@
     <Items>
         <ItemID>10000123245</ItemID>
         <ItemName>Touch</ItemName>
-        <Description>A fluid all-touch display plus slide-out QWERTY keyboard provide an incredible
-            multimedia experience, while never compromising efficient typing with the classic
-            BlackBerry keyboard.
-        </Description>
+        <Description>A fluid all-touch display plus slide-out QWERTY keyboard provide an incredible multimedia experience, while never compromising efficient typing with the classic BlackBerry keyboard.</Description>
         <InStock>Y</InStock>
         <Manufacturer>RIM</Manufacturer>
         <OperatingSystem>BlackBerry</OperatingSystem>
@@ -228,10 +169,7 @@
     <Items>
         <ItemID>10000144205</ItemID>
         <ItemName>HD2</ItemName>
-        <Description>The HTC HD2 is so fast—and its screen is so big—that you might not even notice
-            it's a phone. When you're watching a video, you'll think it's a TV. When you're working,
-            you'll think it's a computer. When you're surfing the Web, you'll miss your bus.
-        </Description>
+        <Description>The HTC HD2 is so fast—and its screen is so big—that you might not even notice it's a phone. When you're watching a video, you'll think it's a TV. When you're working, you'll think it's a computer. When you're surfing the Web, you'll miss your bus.</Description>
         <InStock>Y</InStock>
         <Manufacturer>HTC</Manufacturer>
         <OperatingSystem>Windows 6.5</OperatingSystem>
@@ -242,12 +180,7 @@
     <Items>
         <ItemID>10000156057</ItemID>
         <ItemName>MC75A</ItemName>
-        <Description>The 3.5G MC75A, one of the world’s premium EDAs, offers more features and
-            functionality, in a field-proven rugged form factor, than any other device in its class.
-            The turbocharged MC75A addresses business critical mobility needs by maximizing
-            processing power, rugged design, application flexibility, data capture capabilities,
-            connectivity options, security and manageability — all in one device.
-        </Description>
+        <Description>The 3.5G MC75A, one of the world’s premium EDAs, offers more features and functionality, in a field-proven rugged form factor, than any other device in its class. The turbocharged MC75A addresses business critical mobility needs by maximizing processing power, rugged design, application flexibility, data capture capabilities, connectivity options, security and manageability — all in one device.</Description>
         <InStock>Y</InStock>
         <Manufacturer>Motorola</Manufacturer>
         <OperatingSystem>Windows 6.5</OperatingSystem>
