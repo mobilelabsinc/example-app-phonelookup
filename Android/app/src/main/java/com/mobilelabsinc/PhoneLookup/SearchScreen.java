@@ -12,7 +12,6 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -21,7 +20,9 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.AssetManager;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
+import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -37,10 +38,10 @@ import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.Spinner;
 
 
-public class SearchScreen extends Activity {
-    Context mContext;
+public class SearchScreen extends AppCompatActivity {
+    private Context mContext;
 
-    private List<String> list = new ArrayList<>();
+    private final List<String> list = new ArrayList<>();
     private int inStockValue = 2;
     private String manufacturer = "";
 
@@ -49,16 +50,7 @@ public class SearchScreen extends Activity {
     private CheckBox osIosCheckbox;
     private CheckBox osBlackBerryCheckbox;
     private EditText itemNameEditText;
-    private Spinner manufacturerSpinner;
-    private Button searchButton;
-    private RadioGroup group;
 
-
-    @Override
-    protected void onPostCreate(Bundle savedInstanceState) {
-        // TODO Auto-generated method stub
-        super.onPostCreate(savedInstanceState);
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,14 +73,14 @@ public class SearchScreen extends Activity {
                 list.add(arraylist.get(i));
         }
 
-        osAndroidCheckbox = findViewById(R.id.osAndroidCheckbox);
-        osWindowsCheckbox = findViewById(R.id.osWindowsCheckbox);
-        osIosCheckbox = findViewById(R.id.osIosCheckbox);
-        osBlackBerryCheckbox = findViewById(R.id.osBlackBerryCheckbox);
-        itemNameEditText = findViewById(R.id.itemNameEditText);
-        manufacturerSpinner = findViewById(R.id.manufacturerSpinner);
-        searchButton = findViewById(R.id.searchButton);
-        group = findViewById(R.id.inventoryRadioGroup);
+        osAndroidCheckbox = findViewById(R.id.search_os_android_checkbox);
+        osWindowsCheckbox = findViewById(R.id.search_os_windows_checkbox);
+        osIosCheckbox = findViewById(R.id.search_os_ios_checkbox);
+        osBlackBerryCheckbox = findViewById(R.id.search_os_blackberry_checkbox);
+        itemNameEditText = findViewById(R.id.search_item_name_edit);
+        Spinner manufacturerSpinner = findViewById(R.id.search_manufacturer_spinner);
+        Button searchButton = findViewById(R.id.search_search_button);
+        RadioGroup group = findViewById(R.id.search_inventory_radio_group);
 
         ArrayAdapter<String> manufacturerItems = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item, list);
@@ -101,9 +93,6 @@ public class SearchScreen extends Activity {
         group.setOnCheckedChangeListener(radioListener);
         searchButton.setOnClickListener(listener);
 
-
-
-
     }
 
     @Override
@@ -112,17 +101,17 @@ public class SearchScreen extends Activity {
         unregisterReceiver(Killer);
     }
 
-    public BroadcastReceiver Killer = new BroadcastReceiver() {
+    private final BroadcastReceiver Killer = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            // At this point you should start the login activity and finish this
+            // At this point you should start the signInButton activity and finish this
             // one
             finish();
         }
     };
 
 
-    public OnItemSelectedListener spinnerItemSelectedListener = new OnItemSelectedListener() {
+    private final OnItemSelectedListener spinnerItemSelectedListener = new OnItemSelectedListener() {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view,
         int position, long id) {
@@ -135,24 +124,24 @@ public class SearchScreen extends Activity {
         }
     };
 
-    public OnCheckedChangeListener radioListener = new OnCheckedChangeListener() {
+    private final OnCheckedChangeListener radioListener = new OnCheckedChangeListener() {
         @Override
         public void onCheckedChanged(RadioGroup group, int checkedId) {
             switch (checkedId) {
-                case R.id.inventoryInStockRadioButton:
+                case R.id.search_inventory_in_stock_radio_button:
                     inStockValue = 0;
                     break;
-                case R.id.inventoryOutOfStockRadioButton:
+                case R.id.search_inventory_out_of_stock_radio_button:
                     inStockValue = 1;
                     break;
-                case R.id.inventoryAllRadioButton:
+                case R.id.search_inventory_all_radio_button:
                     inStockValue = 2;
                     break;
             }
         }
     };
 
-    public OnClickListener listener = new OnClickListener() {
+    private final OnClickListener listener = new OnClickListener() {
         @Override
         public void onClick(View v) {
             if (osIosCheckbox.isChecked() | osAndroidCheckbox.isChecked()
@@ -169,7 +158,7 @@ public class SearchScreen extends Activity {
                 bundle.putInt("inStockValue", inStockValue);
 
                 Intent intent = new Intent();
-                intent.setClass(mContext, SearchList.class);
+                intent.setClass(mContext, SearchResults.class);
                 intent.putExtras(bundle);
                 startActivity(intent);
             }
@@ -190,11 +179,14 @@ public class SearchScreen extends Activity {
         }
     };
 
-    public boolean onCreateOptionsMenu(android.view.Menu menu) {
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_view, menu);
         return true;
     }
+
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -215,8 +207,8 @@ public class SearchScreen extends Activity {
         }
     }
 
-    public ArrayList<String> XMLParser() {
-        ArrayList<String> arrayList = new ArrayList<String>();
+    private ArrayList<String> XMLParser() {
+        ArrayList<String> arrayList = new ArrayList<>();
         try {
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             DocumentBuilder db = dbf.newDocumentBuilder();
@@ -242,7 +234,7 @@ public class SearchScreen extends Activity {
                 NodeList currencyList = fstElmnt.getElementsByTagName("Manufacturer");
                 Element currencyListElement = (Element) currencyList.item(0);
                 currencyList = currencyListElement.getChildNodes();
-                arrayList.add(((Node) currencyList.item(0)).getNodeValue());
+                arrayList.add(currencyList.item(0).getNodeValue());
             }
         } catch (Exception e) {
             System.out.println("XML Pasing Excpetion = " + e);
@@ -253,15 +245,12 @@ public class SearchScreen extends Activity {
 
     @Override
     public boolean onKeyLongPress(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            // a long press of the call key.
-            // do our work, returning true to consume it. by
-            // returning true, the framework knows an action has
-            // been performed on the long press, so will set the
-            // canceled flag for the following up event.
-            return true;
-        }
-        return super.onKeyLongPress(keyCode, event);
+        // a long press of the call key.
+        // do our work, returning true to consume it. by
+        // returning true, the framework knows an action has
+        // been performed on the long press, so will set the
+        // canceled flag for the following up event.
+        return keyCode == KeyEvent.KEYCODE_BACK || super.onKeyLongPress(keyCode, event);
     }
 
     @Override

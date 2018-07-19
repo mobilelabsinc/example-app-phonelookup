@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
+        <item name="android:textColor">#ff000000</item>
+        <item name="android:buttonStyle">@style/AppButton</item>
+        <item name="android:editTextStyle">@style/AppEditText</item>
+        <item name="colorAccent">@color/mobile_labs_blue</item>
+        <item name="colorPrimary">@color/mobile_labs_blue</item>
+        <item name="colorPrimaryDark">@color/mobile_labs_dark_blue</item>
+        <item name="android:colorBackground">@color/white</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="android:colorForeground">@color/mobile_labs_dark_blue</item>
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="android:statusBarColor">@color/mobile_labs_blue</item>
+        <item name="android:navigationBarColor">@color/mobile_labs_dark_blue</item>
+        <item name="android:textColorPrimaryInverse">@color/white</item>
+        <item name="android:textColorSecondary">@color/mobile_labs_dark_blue</item>
+    </style>
+</resources>
