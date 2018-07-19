@@ -1,135 +1,91 @@
 package com.mobilelabsinc.PhoneLookup;
 
-import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
-import android.view.Window;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.Currency;
+import java.util.Locale;
 
-public class ProductDetails extends Activity {
 
-    public Bundle bundle;
-    public String ItemName;
-    public String Description;
-    public String Price;
-    public String QtyOnHand;
-    public String Carrier;
-
-    public String ItemId;
-    public String InStock;
-    public String Manufacturer;
-    public String OperatingSystem;
+public class ProductDetails extends AppCompatActivity {
+    private Context mContext;
 
     @Override
-    protected void onPostCreate(Bundle savedInstanceState) {
-        // TODO Auto-generated method stub
-        super.onPostCreate(savedInstanceState);
-    }
-
-    @Override
-
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
-        if (android.os.Build.VERSION.SDK_INT <= 10){
-            requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
-        }
-        setContentView(R.layout.productdetails1);
+
+        setContentView(R.layout.product_details);
+        setTitle("Product Details");
+
+        mContext = this;
 
         /* killer broadcast */
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.package.ACTION_LOGOUT");
         registerReceiver(Killer, intentFilter);
 
-        bundle = getIntent().getExtras();
-        ItemName = bundle.getString("ItemName");
-        Description = bundle.getString("Description");
-        Price = bundle.getString("Price");
-        QtyOnHand = bundle.getString("QtyOnHand");
-        if (QtyOnHand.equals("0"))
-            QtyOnHand = "Out of stock";
-        Carrier = bundle.getString("Carrier");
-        ItemId = bundle.getString("ItemID");
-        InStock = bundle.getString("InStock");
-        Manufacturer = bundle.getString("Manufacturer");
-        OperatingSystem = bundle.getString("OperatingSystem");
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null) {
+            String itemName1 = bundle.getString("ItemName");
+            String description1 = bundle.getString("Description");
+            String price1 = bundle.getString("Price");
+            String qtyOnHand1 = bundle.getString("QtyOnHand");
+            if (qtyOnHand1 != null && qtyOnHand1.equals("0")) qtyOnHand1 = "Out of stock";
+            String itemId = bundle.getString("ItemID");
+            String manufacturer1 = bundle.getString("Manufacturer");
+            String operatingSystem = bundle.getString("OperatingSystem");
 
-        TextView itemName = (TextView) findViewById(R.id.productNameText1);
-        TextView description = (TextView) findViewById(R.id.productDescriptionText1);
-        TextView price = (TextView) findViewById(R.id.productPriceText1);
-        TextView qtyOnHand = (TextView) findViewById(R.id.productQtyOnHandText1);
-        // TextView carrier = (TextView)findViewById(R.id.productCarrierText);
+            TextView itemName = findViewById(R.id.product_details_item_name);
+            TextView description = findViewById(R.id.product_details_description);
+            TextView price = findViewById(R.id.product_details_price);
+            TextView qtyOnHand = findViewById(R.id.product_details_online_quantity);
+            TextView itemID = findViewById(R.id.product_details_item_id);
+            TextView manufacturer = findViewById(R.id.product_details_manufacturer);
+            TextView operationSystem = findViewById(R.id.product_details_operating_system);
 
-        TextView itemID = (TextView) findViewById(R.id.itemIdText1);
-        // TextView inStock = (TextView)findViewById(R.id.itemInStockText);
-        TextView manufacturer = (TextView) findViewById(R.id.itemManufacturerText1);
-        TextView operationSystem = (TextView) findViewById(R.id.itemOperatingSystemText1);
+            //Set Text Values
+            itemID.setText(itemId);
+            manufacturer.setText(manufacturer1);
+            operationSystem.setText(operatingSystem);
+            itemName.setText(itemName1);
+            description.setText(description1);
 
-        itemID.setText(ItemId);
-        // inStock.setText(InStock);
-        manufacturer.setText(Manufacturer);
-        operationSystem.setText(OperatingSystem);
+            //Set the price
+            Currency currency = Currency.getInstance(Locale.getDefault());
+            String symbol = currency.getSymbol();
+            price.setText(getString(R.string.product_details_price_units, symbol, price1));
+            qtyOnHand.setText(qtyOnHand1);
 
-        itemName.setText(ItemName);
-        description.setText(Description);
-        price.setText("$" + Price + "/Each");
-        qtyOnHand.setText(QtyOnHand);
-        // carrier.setText(Carrier);
-
-
-        if (android.os.Build.VERSION.SDK_INT <= 10){
-            getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.header);
-            TextView headerText = (TextView)findViewById(R.id.header_title);
-            headerText.setText("Product Details");
+            //Set the operating system image
+            ImageView operatingSystemImageView = findViewById(R.id.product_details_icon);
+            if (operatingSystem != null && operatingSystem.startsWith("BlackBerry")) {
+                Drawable icon = getResources().getDrawable(R.drawable.bb_item);
+                operatingSystemImageView.setImageDrawable(icon);
+            }
+            if (operatingSystem != null && operatingSystem.startsWith("Android")) {
+                Drawable icon = getResources().getDrawable(R.drawable.and_item);
+                operatingSystemImageView.setImageDrawable(icon);
+            }
+            if (operatingSystem != null && operatingSystem.startsWith("iOS")) {
+                Drawable icon = getResources().getDrawable(R.drawable.ios_item);
+                operatingSystemImageView.setImageDrawable(icon);
+            }
+            if (operatingSystem != null && operatingSystem.startsWith("Windows")) {
+                Drawable icon = getResources().getDrawable(R.drawable.win_item);
+                operatingSystemImageView.setImageDrawable(icon);
+            }
         }
-        else{
-            setTitle("Product Details");
-        }
-
-        ImageView image = (ImageView) findViewById(R.id.osItem);
-
-        Bitmap bitmap_bbOrg = BitmapFactory.decodeResource(getResources(), R.drawable.bb_item);
-        Bitmap resizedBB = SearchList.getRoundedCornerBitmap(bitmap_bbOrg, 10);
-        /* convert Bitmap to resource */
-        BitmapDrawable bb = new BitmapDrawable(resizedBB);
-
-        Bitmap bitmap_andOrg = BitmapFactory.decodeResource(getResources(), R.drawable.and_item);
-        Bitmap resizedAndroid = SearchList.getRoundedCornerBitmap(bitmap_andOrg, 10);
-        /* convert Bitmap to resource */
-        BitmapDrawable and = new BitmapDrawable(resizedAndroid);
-
-        Bitmap bitmap_iosOrg = BitmapFactory.decodeResource(getResources(), R.drawable.ios_item);
-        Bitmap resizedIos = SearchList.getRoundedCornerBitmap(bitmap_iosOrg, 10);
-        /* convert Bitmap to resource */
-        BitmapDrawable ios = new BitmapDrawable(resizedIos);
-
-        Bitmap bitmap_winOrg = BitmapFactory.decodeResource(getResources(), R.drawable.win_item);
-        Bitmap resizedWindows = SearchList.getRoundedCornerBitmap(bitmap_winOrg, 10);
-        /* convert Bitmap to resource */
-        BitmapDrawable win = new BitmapDrawable(resizedWindows);
-
-        if (OperatingSystem.startsWith("BlackBerry")) {
-            image.setBackgroundDrawable(bb);
-        }
-        if (OperatingSystem.startsWith("Android")) {
-            image.setBackgroundDrawable(and);
-        }
-        if (OperatingSystem.startsWith("iOS")) {// iOS
-            image.setBackgroundDrawable(ios);
-        }
-        if (OperatingSystem.startsWith("Windows")) {// iOS
-            image.setBackgroundDrawable(win);
-        }
-
 
     }
 
@@ -140,26 +96,50 @@ public class ProductDetails extends Activity {
         unregisterReceiver(Killer);
     }
 
-    public BroadcastReceiver Killer = new BroadcastReceiver() {
+    private final BroadcastReceiver Killer = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            // At this point you should start the login activity and finish this
+            // At this point you should start the signInButton activity and finish this
             // one
             finish();
         }
     };
 
+    public boolean onCreateOptionsMenu(android.view.Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_view, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent = new Intent();
+        // TODO Auto-generated method stub
+        switch (item.getItemId()) {
+            case R.id.search:
+                intent.setClass(mContext, SearchScreen.class);
+                startActivity(intent);
+                return true;
+            case R.id.logout:
+                intent.setClass(mContext, Login.class);
+                startActivity(intent);
+                Intent broadcastIntent = new Intent();
+                broadcastIntent.setAction("com.package.ACTION_LOGOUT");
+                this.sendBroadcast(broadcastIntent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
     @Override
     public boolean onKeyLongPress(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            // a long press of the call key.
-            // do our work, returning true to consume it. by
-            // returning true, the framework knows an action has
-            // been performed on the long press, so will set the
-            // canceled flag for the following up event.
-            return true;
-        }
-        return super.onKeyLongPress(keyCode, event);
+        // a long press of the call key.
+        // do our work, returning true to consume it. by
+        // returning true, the framework knows an action has
+        // been performed on the long press, so will set the
+        // canceled flag for the following up event.
+        return keyCode == KeyEvent.KEYCODE_BACK || super.onKeyLongPress(keyCode, event);
     }
 
     @Override
