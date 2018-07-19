@@ -63,7 +63,7 @@ public class SearchResults extends AppCompatActivity {
         /* killer broadcast */
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.package.ACTION_LOGOUT");
-        registerReceiver(Killer, intentFilter);
+        registerReceiver(Logout, intentFilter);
 
         ListView productListView = findViewById(R.id.product_list_view);
 
@@ -110,7 +110,7 @@ public class SearchResults extends AppCompatActivity {
             if (itemList.size() != 0) {
 
                 productListView.setTextFilterEnabled(true);
-                productListView.setAdapter(new listadapter(this, itemList,
+                productListView.setAdapter(new listAdapter(this, itemList,
                         new String[]{"ItemName", "ItemID", "Carrier", "InStock", "Price", "PriceUnits"}, new int[]{R.id.list_item_item_name, R.id.list_item_item_id, R.id.list_item_carrier, R.id.list_item_in_stock, R.id.list_item_price, R.id.list_item_price_units}));
 
                 productListView.setDividerHeight(1);
@@ -160,21 +160,19 @@ public class SearchResults extends AppCompatActivity {
     protected void onDestroy() {
         // TODO Auto-generated method stub
         super.onDestroy();
-        unregisterReceiver(Killer);
+        unregisterReceiver(Logout);
     }
 
-    private final BroadcastReceiver Killer = new BroadcastReceiver() {
+    private final BroadcastReceiver Logout = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            //At this point you should start the signInButton activity and finish this one
-            //          System.out.println("..............searchlist");
             finish();
         }
     };
 
-    class listadapter extends SimpleAdapter {
+    class listAdapter extends SimpleAdapter {
 
-        listadapter(Context context,
+        listAdapter(Context context,
                     List<? extends Map<String, ?>> data,
                     String[] from, int[] to) {
             super(context, data, R.layout.product_list_item, from, to);
@@ -388,8 +386,8 @@ public class SearchResults extends AppCompatActivity {
                 }
             }
         }
-        catch (Exception e) {
-            System.out.println("XML Pasing Excpetion = " + e);
+        catch (Exception ignored) {
+
         }
 
         return arrayList;

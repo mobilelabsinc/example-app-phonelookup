@@ -2,7 +2,7 @@ package com.mobilelabsinc.PhoneLookup;
 
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collections;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -40,8 +40,6 @@ import android.widget.Spinner;
 
 public class SearchScreen extends AppCompatActivity {
     private Context mContext;
-
-    private final List<String> list = new ArrayList<>();
     private int inStockValue = 2;
     private String manufacturer = "";
 
@@ -61,17 +59,10 @@ public class SearchScreen extends AppCompatActivity {
         setContentView(R.layout.search);
         setTitle("Search");
 
-        /* killer broadcast */
+        //Logout broadcast
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.package.ACTION_LOGOUT");
-        registerReceiver(Killer, intentFilter);
-
-        ArrayList<String> arraylist = XMLParser();
-
-        for (int i = 0; i < arraylist.size(); i++) {
-            if (!list.contains(arraylist.get(i)))
-                list.add(arraylist.get(i));
-        }
+        registerReceiver(Logout, intentFilter);
 
         osAndroidCheckbox = findViewById(R.id.search_os_android_checkbox);
         osWindowsCheckbox = findViewById(R.id.search_os_windows_checkbox);
@@ -82,26 +73,25 @@ public class SearchScreen extends AppCompatActivity {
         Button searchButton = findViewById(R.id.search_search_button);
         RadioGroup group = findViewById(R.id.search_inventory_radio_group);
 
-        ArrayAdapter<String> manufacturerItems = new ArrayAdapter<>(this,
-                android.R.layout.simple_spinner_item, list);
+        //Set the manufacturer spinner list with "HTC" selected
+        ArrayList<String> manufacturerList = buildManufacturerList();
+        ArrayAdapter<String> manufacturerItems = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, manufacturerList);
         manufacturerItems.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
         manufacturerSpinner.setAdapter(manufacturerItems);
-        manufacturerSpinner.setSelection(1);
+        manufacturerSpinner.setSelection(manufacturerItems.getPosition("HTC"));
 
         manufacturerSpinner.setOnItemSelectedListener(spinnerItemSelectedListener);
-        group.setOnCheckedChangeListener(radioListener);
-        searchButton.setOnClickListener(listener);
-
+        group.setOnCheckedChangeListener(radioOnCheckedChangeListener);
+        searchButton.setOnClickListener(buttonOnClickListener);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        unregisterReceiver(Killer);
+        unregisterReceiver(Logout);
     }
 
-    private final BroadcastReceiver Killer = new BroadcastReceiver() {
+    private final BroadcastReceiver Logout = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             // At this point you should start the signInButton activity and finish this
@@ -124,7 +114,7 @@ public class SearchScreen extends AppCompatActivity {
         }
     };
 
-    private final OnCheckedChangeListener radioListener = new OnCheckedChangeListener() {
+    private final OnCheckedChangeListener radioOnCheckedChangeListener = new OnCheckedChangeListener() {
         @Override
         public void onCheckedChanged(RadioGroup group, int checkedId) {
             switch (checkedId) {
@@ -141,7 +131,7 @@ public class SearchScreen extends AppCompatActivity {
         }
     };
 
-    private final OnClickListener listener = new OnClickListener() {
+    private final OnClickListener buttonOnClickListener = new OnClickListener() {
         @Override
         public void onClick(View v) {
             if (osIosCheckbox.isChecked() | osAndroidCheckbox.isChecked()
@@ -207,7 +197,7 @@ public class SearchScreen extends AppCompatActivity {
         }
     }
 
-    private ArrayList<String> XMLParser() {
+    private ArrayList<String> buildManufacturerList() {
         ArrayList<String> arrayList = new ArrayList<>();
         try {
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -221,23 +211,31 @@ public class SearchScreen extends AppCompatActivity {
             doc.getDocumentElement().normalize();
             NodeList nodeList = doc.getElementsByTagName("Items");
 
-            /*
-             * To view all the manufacturer productManually added "ANY"
-             */
-
+            //Add item Any
             arrayList.add("Any");
+
+            //Add manufacturer items from product list
             for (int i = 0; i < nodeList.getLength(); i++) {
                 Node node = nodeList.item(i);
+                Element itemElement = (Element) node;
 
-                Element fstElmnt = (Element) node;
+                //Get the manufacturer value
+                NodeList manufacturerNodeList = itemElement.getElementsByTagName("Manufacturer");
+                Element manufacturerElement = (Element) manufacturerNodeList.item(0);
+                manufacturerNodeList = manufacturerElement.getChildNodes();
+                String currentManufacturer = manufacturerNodeList.item(0).getNodeValue();
 
-                NodeList currencyList = fstElmnt.getElementsByTagName("Manufacturer");
-                Element currencyListElement = (Element) currencyList.item(0);
-                currencyList = currencyListElement.getChildNodes();
-                arrayList.add(currencyList.item(0).getNodeValue());
+                //Only add the manufacturer to the list if it isn't in the list
+                if(!arrayList.contains(currentManufacturer)){
+                    arrayList.add(currentManufacturer);
+                }
             }
-        } catch (Exception e) {
-            System.out.println("XML Pasing Excpetion = " + e);
+
+            //Sort the list
+            Collections.sort(arrayList);
+        }
+        catch (Exception ignored) {
+
         }
 
         return arrayList;
