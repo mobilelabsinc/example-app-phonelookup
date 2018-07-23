@@ -7,11 +7,9 @@
 //
 
 #import "SearchListViewController.h"
-#import "MockModeController.h"
-#import "ProductXMLHandler.h"
-#import "ProductItem.h"
 #import "ProductViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "PhoneLookup-Swift.h"
 
 @interface UIImage (scale)
 - (UIImage*)imageScaledToSize:(CGSize)size;
@@ -35,7 +33,7 @@ static SearchListViewController *instance;
 @end
 
 @implementation SearchListViewController
-@synthesize productArray,proTableView,productItem;
+@synthesize productArray,proTableView;
 
 + (SearchListViewController *)currentInstance {
     return instance;
@@ -110,10 +108,12 @@ static SearchListViewController *instance;
 	}
 	
     NSInteger i = indexPath.row;
-    ProductItem *desc=(ProductItem *)[productArray objectAtIndex:i];
+    
+    Item *item = [[Item alloc] init];
+    item = [productArray objectAtIndex:i];
 	
     UILabel *textLabel = [[UILabel alloc] initWithFrame:CGRectMake(70.0f, 0.0f, 100.0f, 30.0f)];
-    textLabel.text = desc.ProductName;
+    textLabel.text = item.productName;
     textLabel.tag =1;
     textLabel.textAlignment =NSTextAlignmentLeft;
     textLabel.textColor = [UIColor colorWithRed:0/255.0 green:143/255.0 blue:213/255.0 alpha:1.0];
@@ -127,7 +127,7 @@ static SearchListViewController *instance;
     
     Instock.tag =2;
     Instock.textAlignment =NSTextAlignmentLeft;
-    if([desc.QtyOnHand intValue]==0){
+    if([item.qtyOnHand intValue]==0){
         Instock.textColor = [UIColor redColor];
         Instock.text = @"[Out of Stock]";
     }else{
@@ -141,7 +141,7 @@ static SearchListViewController *instance;
     [cell.contentView addSubview:Instock];
     
     UILabel *detailTextLabel = [[UILabel alloc] initWithFrame:CGRectMake(70.0f, 25.0f, 100.0f, 25.0f)];
-    detailTextLabel.text = desc.ProductID;
+    detailTextLabel.text = item.productID;
     detailTextLabel.tag =3;
     detailTextLabel.textAlignment =NSTextAlignmentLeft;
     detailTextLabel.textColor = [UIColor grayColor];
@@ -152,7 +152,7 @@ static SearchListViewController *instance;
     [cell.contentView addSubview:detailTextLabel];
     
     UILabel *detailSubTextLabel = [[UILabel alloc] initWithFrame:CGRectMake(70.0f, 50.0f, 100.0f, 25.0f)];
-    detailSubTextLabel.text = [NSString stringWithFormat:@"Carrier : %@", desc.Carrier];
+    detailSubTextLabel.text = [NSString stringWithFormat:@"Carrier : %@", item.carrier];
     detailSubTextLabel.tag =4;
     detailSubTextLabel.textAlignment =NSTextAlignmentLeft;
     detailSubTextLabel.textColor = [UIColor grayColor];
@@ -162,13 +162,13 @@ static SearchListViewController *instance;
     detailSubTextLabel.backgroundColor = [UIColor clearColor];
     [cell.contentView addSubview:detailSubTextLabel];
     
-    NSArray *listItems = [desc.Price componentsSeparatedByString:@"."];
+    NSArray *listItems = [item.price componentsSeparatedByString:@"."];
     UILabel *priceTextLabel = [[UILabel alloc] initWithFrame:CGRectMake(230.0f, 25.0f, 50.0f, 25.0f)];
     if([listItems count]>=1)
         priceTextLabel.text = [listItems objectAtIndex:0];
     else
         priceTextLabel.text = @"00";
-    priceTextLabel.tag =5;
+    priceTextLabel.tag = 5;
     priceTextLabel.textAlignment =NSTextAlignmentRight;
     priceTextLabel.textColor = [UIColor orangeColor];
     priceTextLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size: 18.0];
@@ -182,9 +182,8 @@ static SearchListViewController *instance;
         pricesupTextLabel.text = [listItems objectAtIndex:1];
     else
         pricesupTextLabel.text = @"00";
-    //pricesupTextLabel.text = [listItems objectAtIndex:1];
-    pricesupTextLabel.tag =6;
-    pricesupTextLabel.textAlignment =NSTextAlignmentLeft;
+    pricesupTextLabel.tag = 6;
+    pricesupTextLabel.textAlignment = NSTextAlignmentLeft;
     pricesupTextLabel.textColor = [UIColor orangeColor];
     pricesupTextLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size: 10.0];
     pricesupTextLabel.lineBreakMode = NSLineBreakByWordWrapping;
@@ -206,13 +205,13 @@ static SearchListViewController *instance;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     UIImage *image;
-    if([desc.OperatingSystem rangeOfString:@"iOS"].location != NSNotFound)
+    if([item.operatingSystem rangeOfString:@"iOS"].location != NSNotFound)
         image=[UIImage imageNamed:@"Apple.png"];
-    if([desc.OperatingSystem rangeOfString:@"BlackBerry"].location != NSNotFound)
+    if([item.operatingSystem rangeOfString:@"BlackBerry"].location != NSNotFound)
         image=[UIImage imageNamed:@"Blackberry.png"];
-    if([desc.OperatingSystem rangeOfString:@"Android"].location != NSNotFound)
+    if([item.operatingSystem rangeOfString:@"Android"].location != NSNotFound)
         image=[UIImage imageNamed:@"Android.png"];
-    if([desc.OperatingSystem rangeOfString:@"Windows"].location != NSNotFound)
+    if([item.operatingSystem rangeOfString:@"Windows"].location != NSNotFound)
         image=[UIImage imageNamed:@"Windows.png"];
     
     cell.imageView.image = [image imageScaledToSize:CGSizeMake(50, 50)];
@@ -229,7 +228,7 @@ static SearchListViewController *instance;
     productViewController.title=@"Product";
 	NSInteger i = indexPath.row;
     
-	productViewController.currentItem=(ProductItem *)[productArray objectAtIndex:i];
+	productViewController.currentItem = [productArray objectAtIndex:i];
 	[self.navigationController pushViewController:productViewController animated:YES];
     
     

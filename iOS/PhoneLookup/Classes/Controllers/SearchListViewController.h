@@ -7,20 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ProductItem.h"
-
 
 @interface SearchListViewController : UIViewController <UITableViewDelegate,UITableViewDataSource>
 {
-    NSMutableArray *productArray;
+    NSArray *productArray;
     IBOutlet UITableView *proTableView;
-    ProductItem *productItem;
-    
 }
 
-@property (nonatomic,retain) NSMutableArray *productArray;
+@property (nonatomic,retain) NSArray *productArray;
 @property(nonatomic,retain) UITableView *proTableView;
-@property(nonatomic,retain) ProductItem *productItem;
 
 // Used by unit tests; not for production use
 + (SearchListViewController *)currentInstance;

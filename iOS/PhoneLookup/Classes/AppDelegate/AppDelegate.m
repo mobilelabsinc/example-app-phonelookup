@@ -38,9 +38,9 @@ static LoginViewController *loginViewControllerInstance;
     
     SearchViewController *searchViewController = [[SearchViewController alloc] initWithNibName:@"SearchViewController" bundle:nil];
     UINavigationController *searchNavController = [[UINavigationController alloc] initWithRootViewController:searchViewController];
-    [searchNavController.tabBarItem initWithTabBarSystemItem:UITabBarSystemItemSearch tag:0];
-    searchNavController.tabBarItem.title = @"Search";
-    
+    UITabBarItem *searchTabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemSearch tag:0];
+    searchTabBarItem.title = @"Search";
+    searchNavController.tabBarItem = searchTabBarItem;
     
     self.tabBarController.viewControllers = [NSArray arrayWithObjects: searchNavController, nil];
     

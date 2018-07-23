@@ -8,6 +8,7 @@
 
 #import "ProductViewController.h"
 #import "QuartzCore/QuartzCore.h"
+#import "PhoneLookup-Swift.h"
 
 
 
@@ -42,34 +43,34 @@
     NSStringDrawingOptions options = NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin;
     NSDictionary *attributDict = @{NSFontAttributeName: [UIFont fontWithName:@"Helvetica-Bold" size: 14.0]};
     
-    CGRect calcSize = [currentItem.Description boundingRectWithSize:frame.size options:options attributes:attributDict context:nil];
+    CGRect calcSize = [currentItem.productDescription boundingRectWithSize:frame.size options:options attributes:attributDict context:nil];
     
     frame.size = calcSize.size;
     frame.size.height += 10;
     productDesc.frame=frame;
     
     UIImage *image;
-    if([currentItem.OperatingSystem rangeOfString:@"iOS"].location != NSNotFound)
+    if([currentItem.operatingSystem rangeOfString:@"iOS"].location != NSNotFound)
         image=[UIImage imageNamed:@"Apple.png"];
-    if([currentItem.OperatingSystem rangeOfString:@"BlackBerry"].location != NSNotFound)
+    if([currentItem.operatingSystem rangeOfString:@"BlackBerry"].location != NSNotFound)
         image=[UIImage imageNamed:@"Blackberry.png"];
-    if([currentItem.OperatingSystem rangeOfString:@"Android"].location != NSNotFound)
+    if([currentItem.operatingSystem rangeOfString:@"Android"].location != NSNotFound)
         image=[UIImage imageNamed:@"Android.png"];
-    if([currentItem.OperatingSystem rangeOfString:@"Windows"].location != NSNotFound)
+    if([currentItem.operatingSystem rangeOfString:@"Windows"].location != NSNotFound)
         image=[UIImage imageNamed:@"Windows.png"];
     
     imageView.image = image;    
-    productName.text=currentItem.ProductName;
-    ProductID.text=[NSString stringWithFormat:@"Product SKU # %@",currentItem.ProductID];
-    productDesc.text=currentItem.Description;
-    productPrice.text=[NSString stringWithFormat:@"Price : %@/Each",currentItem.Price];
-    productBrand.text=[NSString stringWithFormat:@"Manufacturer : %@",currentItem.Manufacturer];
-    if([currentItem.QtyOnHand intValue]==0)
+    productName.text=currentItem.productName;
+    ProductID.text=[NSString stringWithFormat:@"Product SKU # %@",currentItem.productID];
+    productDesc.text=currentItem.productDescription;
+    productPrice.text=[NSString stringWithFormat:@"Price : %@/Each",currentItem.price];
+    productBrand.text=[NSString stringWithFormat:@"Manufacturer : %@",currentItem.manufacturer];
+    if([currentItem.qtyOnHand intValue]==0)
         QtyOnHand.text=[NSString stringWithFormat:@"Online Quantity : Out of Stock"];
     else
-        QtyOnHand.text=[NSString stringWithFormat:@"Online Quantity : %@",currentItem.QtyOnHand];
+        QtyOnHand.text=[NSString stringWithFormat:@"Online Quantity : %@",currentItem.qtyOnHand];
     //Carrier.text=[NSString stringWithFormat:@"Carrier # %@",currentItem.Carrier];
-    OperatingSystem.text=[NSString stringWithFormat:@"Operating System : %@",currentItem.OperatingSystem];
+    OperatingSystem.text=[NSString stringWithFormat:@"Operating System : %@",currentItem.operatingSystem];
     
     
     productDesc.layer.borderWidth = 2.0f;

@@ -18,33 +18,19 @@
 		B81BE76317DB77B700CD67EC /* SearchListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B81BE76117DB77B700CD67EC /* SearchListViewController.xib */; };
 		B81BE76C17DBB05300CD67EC /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B81BE76A17DBB05300CD67EC /* LoginViewController.m */; };
 		B81BE76D17DBB05300CD67EC /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B81BE76B17DBB05300CD67EC /* LoginViewController.xib */; };
-		B834F67B17DBEB4800D35A1E /* MockModeController.m in Sources */ = {isa = PBXBuildFile; fileRef = B834F67617DBEB4800D35A1E /* MockModeController.m */; };
-		B834F67C17DBEB4800D35A1E /* ProductXMLHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = B834F67817DBEB4800D35A1E /* ProductXMLHandler.m */; };
-		B834F68117DBEBC900D35A1E /* LoginXml.xml in Resources */ = {isa = PBXBuildFile; fileRef = B834F67F17DBEBC900D35A1E /* LoginXml.xml */; };
-		B834F68717DBED7800D35A1E /* ProductItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B834F68417DBED7800D35A1E /* ProductItem.m */; };
-		B834F68817DBED7800D35A1E /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = B834F68617DBED7800D35A1E /* User.m */; };
 		B834F68A17DBFC9000D35A1E /* ProductXml.xml in Resources */ = {isa = PBXBuildFile; fileRef = B834F68917DBFC9000D35A1E /* ProductXml.xml */; };
 		B834F69217DC0C2600D35A1E /* ProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B834F68D17DC0C2600D35A1E /* ProductViewController.xib */; };
 		B834F69317DC0C2600D35A1E /* ProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B834F68E17DC0C2600D35A1E /* ProductViewController.m */; };
-		B834F6E917DCC50200D35A1E /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B834F6E717DCC50200D35A1E /* DetailViewController.m */; };
-		B834F6EA17DCC50200D35A1E /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B834F6E817DCC50200D35A1E /* DetailViewController.xib */; };
 		B8421B4F17DD67EA00DC6438 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B8421B4E17DD67EA00DC6438 /* AppDelegate.m */; };
 		B8421B7B17DD6A9A00DC6438 /* Android.png in Resources */ = {isa = PBXBuildFile; fileRef = B8421B7A17DD6A9A00DC6438 /* Android.png */; };
 		B8421B9417DD6AB800DC6438 /* Apple.png in Resources */ = {isa = PBXBuildFile; fileRef = B8421B7E17DD6AB800DC6438 /* Apple.png */; };
 		B8421B9617DD6AB800DC6438 /* Blackberry.png in Resources */ = {isa = PBXBuildFile; fileRef = B8421B8017DD6AB800DC6438 /* Blackberry.png */; };
-		B8421B9917DD6AB800DC6438 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B8421B8317DD6AB800DC6438 /* Default-568h@2x.png */; };
-		B8421B9A17DD6AB800DC6438 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B8421B8417DD6AB800DC6438 /* Default.png */; };
-		B8421B9B17DD6AB800DC6438 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B8421B8517DD6AB800DC6438 /* Default@2x.png */; };
-		B8421B9C17DD6AB800DC6438 /* Default~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = B8421B8617DD6AB800DC6438 /* Default~iphone.png */; };
-		B8421B9E17DD6AB800DC6438 /* MobileLabs_CMYK_TM.png in Resources */ = {isa = PBXBuildFile; fileRef = B8421B8817DD6AB800DC6438 /* MobileLabs_CMYK_TM.png */; };
-		B8421B9F17DD6AB800DC6438 /* MobileLabs_logo_small.png in Resources */ = {isa = PBXBuildFile; fileRef = B8421B8917DD6AB800DC6438 /* MobileLabs_logo_small.png */; };
 		B8421BA817DD6AB800DC6438 /* Windows.png in Resources */ = {isa = PBXBuildFile; fileRef = B8421B9217DD6AB800DC6438 /* Windows.png */; };
-		B898D182185FF7020009A1F6 /* PhoneLookup_29.png in Resources */ = {isa = PBXBuildFile; fileRef = B898D171185FF7020009A1F6 /* PhoneLookup_29.png */; };
-		B898D186185FF7020009A1F6 /* PhoneLookup_57.png in Resources */ = {isa = PBXBuildFile; fileRef = B898D175185FF7020009A1F6 /* PhoneLookup_57.png */; };
-		B898D187185FF7020009A1F6 /* PhoneLookup_58.png in Resources */ = {isa = PBXBuildFile; fileRef = B898D176185FF7020009A1F6 /* PhoneLookup_58.png */; };
-		B898D18A185FF7020009A1F6 /* PhoneLookup_80.png in Resources */ = {isa = PBXBuildFile; fileRef = B898D179185FF7020009A1F6 /* PhoneLookup_80.png */; };
-		B898D18C185FF7020009A1F6 /* PhoneLookup_114.png in Resources */ = {isa = PBXBuildFile; fileRef = B898D17B185FF7020009A1F6 /* PhoneLookup_114.png */; };
-		B898D18D185FF7020009A1F6 /* PhoneLookup_120.png in Resources */ = {isa = PBXBuildFile; fileRef = B898D17C185FF7020009A1F6 /* PhoneLookup_120.png */; };
+		B84BA69B2102C428000193A1 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B84BA69A2102C428000193A1 /* Launch Screen.storyboard */; };
+		B8E179C02104F8A900A737FB /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E179BF2104F8A900A737FB /* Product.swift */; };
+		B8E179C22104FEF900A737FB /* ProductXMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E179C12104FEF900A737FB /* ProductXMLParser.swift */; };
+		B8E179C421050DBE00A737FB /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E179C321050DBE00A737FB /* Item.swift */; };
+		B8E179C82105905900A737FB /* MobileLabs_RGB_TM_1536x1044.png in Resources */ = {isa = PBXBuildFile; fileRef = B8E179C72105905900A737FB /* MobileLabs_RGB_TM_1536x1044.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,43 +69,25 @@
 		B81BE76A17DBB05300CD67EC /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Classes/Controllers/LoginViewController.m; sourceTree = "<group>"; };
 		B81BE76B17DBB05300CD67EC /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginViewController.xib; path = Classes/Controllers/LoginViewController.xib; sourceTree = "<group>"; };
 		B834F67217DBE83300D35A1E /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = Classes/Controllers/LoginViewController.h; sourceTree = "<group>"; };
-		B834F67517DBEB4800D35A1E /* MockModeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MockModeController.h; path = Classes/Utility/MockModeController.h; sourceTree = "<group>"; };
-		B834F67617DBEB4800D35A1E /* MockModeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MockModeController.m; path = Classes/Utility/MockModeController.m; sourceTree = "<group>"; };
-		B834F67717DBEB4800D35A1E /* ProductXMLHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductXMLHandler.h; path = Classes/Utility/ProductXMLHandler.h; sourceTree = "<group>"; };
-		B834F67817DBEB4800D35A1E /* ProductXMLHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductXMLHandler.m; path = Classes/Utility/ProductXMLHandler.m; sourceTree = "<group>"; };
-		B834F67F17DBEBC900D35A1E /* LoginXml.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = LoginXml.xml; path = Resources/XML/LoginXml.xml; sourceTree = "<group>"; };
-		B834F68317DBED7800D35A1E /* ProductItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductItem.h; path = Classes/Model/ProductItem.h; sourceTree = "<group>"; };
-		B834F68417DBED7800D35A1E /* ProductItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductItem.m; path = Classes/Model/ProductItem.m; sourceTree = "<group>"; };
-		B834F68517DBED7800D35A1E /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = Classes/Model/User.h; sourceTree = "<group>"; };
-		B834F68617DBED7800D35A1E /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = Classes/Model/User.m; sourceTree = "<group>"; };
 		B834F68917DBFC9000D35A1E /* ProductXml.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = ProductXml.xml; path = Resources/XML/ProductXml.xml; sourceTree = "<group>"; };
 		B834F68D17DC0C2600D35A1E /* ProductViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ProductViewController.xib; path = Classes/Controllers/ProductViewController.xib; sourceTree = "<group>"; };
 		B834F68E17DC0C2600D35A1E /* ProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductViewController.m; path = Classes/Controllers/ProductViewController.m; sourceTree = "<group>"; };
 		B834F68F17DC0C2600D35A1E /* ProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductViewController.h; path = Classes/Controllers/ProductViewController.h; sourceTree = "<group>"; };
-		B834F6E617DCC50200D35A1E /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailViewController.h; path = Classes/Controllers/DetailViewController.h; sourceTree = "<group>"; };
-		B834F6E717DCC50200D35A1E /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailViewController.m; path = Classes/Controllers/DetailViewController.m; sourceTree = "<group>"; };
-		B834F6E817DCC50200D35A1E /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DetailViewController.xib; path = Classes/Controllers/DetailViewController.xib; sourceTree = "<group>"; };
 		B8421B4D17DD67EA00DC6438 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Classes/AppDelegate/AppDelegate.h; sourceTree = "<group>"; };
 		B8421B4E17DD67EA00DC6438 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Classes/AppDelegate/AppDelegate.m; sourceTree = "<group>"; };
 		B8421B7A17DD6A9A00DC6438 /* Android.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Android.png; path = Resources/Images/Android.png; sourceTree = "<group>"; };
 		B8421B7E17DD6AB800DC6438 /* Apple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Apple.png; path = Resources/Images/Apple.png; sourceTree = "<group>"; };
 		B8421B8017DD6AB800DC6438 /* Blackberry.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Blackberry.png; path = Resources/Images/Blackberry.png; sourceTree = "<group>"; };
-		B8421B8317DD6AB800DC6438 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Resources/Images/Default-568h@2x.png"; sourceTree = "<group>"; };
-		B8421B8417DD6AB800DC6438 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Resources/Images/Default.png; sourceTree = "<group>"; };
-		B8421B8517DD6AB800DC6438 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Resources/Images/Default@2x.png"; sourceTree = "<group>"; };
-		B8421B8617DD6AB800DC6438 /* Default~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default~iphone.png"; path = "Resources/Images/Default~iphone.png"; sourceTree = "<group>"; };
-		B8421B8817DD6AB800DC6438 /* MobileLabs_CMYK_TM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MobileLabs_CMYK_TM.png; path = Resources/Images/MobileLabs_CMYK_TM.png; sourceTree = "<group>"; };
-		B8421B8917DD6AB800DC6438 /* MobileLabs_logo_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MobileLabs_logo_small.png; path = Resources/Images/MobileLabs_logo_small.png; sourceTree = "<group>"; };
 		B8421B9217DD6AB800DC6438 /* Windows.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Windows.png; path = Resources/Images/Windows.png; sourceTree = "<group>"; };
-		B898D171185FF7020009A1F6 /* PhoneLookup_29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PhoneLookup_29.png; path = Resources/Images/PhoneLookup_29.png; sourceTree = "<group>"; };
-		B898D175185FF7020009A1F6 /* PhoneLookup_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PhoneLookup_57.png; path = Resources/Images/PhoneLookup_57.png; sourceTree = "<group>"; };
-		B898D176185FF7020009A1F6 /* PhoneLookup_58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PhoneLookup_58.png; path = Resources/Images/PhoneLookup_58.png; sourceTree = "<group>"; };
-		B898D179185FF7020009A1F6 /* PhoneLookup_80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PhoneLookup_80.png; path = Resources/Images/PhoneLookup_80.png; sourceTree = "<group>"; };
-		B898D17B185FF7020009A1F6 /* PhoneLookup_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PhoneLookup_114.png; path = Resources/Images/PhoneLookup_114.png; sourceTree = "<group>"; };
-		B898D17C185FF7020009A1F6 /* PhoneLookup_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PhoneLookup_120.png; path = Resources/Images/PhoneLookup_120.png; sourceTree = "<group>"; };
+		B84BA69A2102C428000193A1 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		B8E1725C20FD9035007B3E84 /* PhoneLookupTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhoneLookupTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8E1725D20FD9066007B3E84 /* PhoneLookup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhoneLookup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8E1725E20FD9078007B3E84 /* PhoneLookupUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhoneLookupUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8E179BE2104F8A800A737FB /* PhoneLookup-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PhoneLookup-Bridging-Header.h"; sourceTree = "<group>"; };
+		B8E179BF2104F8A900A737FB /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		B8E179C12104FEF900A737FB /* ProductXMLParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductXMLParser.swift; sourceTree = "<group>"; };
+		B8E179C321050DBE00A737FB /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		B8E179C72105905900A737FB /* MobileLabs_RGB_TM_1536x1044.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MobileLabs_RGB_TM_1536x1044.png; path = Resources/Images/MobileLabs_RGB_TM_1536x1044.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +160,7 @@
 				B81BE76E17DBB0E900CD67EC /* Resources */,
 				B81BE72017DB5E8100CD67EC /* Supporting Files */,
 				B81BE72B17DB5E8100CD67EC /* Images.xcassets */,
+				B84BA69A2102C428000193A1 /* Launch Screen.storyboard */,
 			);
 			path = PhoneLookup;
 			sourceTree = "<group>";
@@ -212,7 +181,6 @@
 			children = (
 				B81BE74A17DB60D600CD67EC /* AppDelegate */,
 				B81BE74917DB60CC00CD67EC /* Controllers */,
-				B834F68217DBED2600D35A1E /* Model */,
 				B834F67317DBEB0100D35A1E /* Utility */,
 			);
 			name = Classes;
@@ -224,9 +192,6 @@
 				B834F67217DBE83300D35A1E /* LoginViewController.h */,
 				B81BE76A17DBB05300CD67EC /* LoginViewController.m */,
 				B81BE76B17DBB05300CD67EC /* LoginViewController.xib */,
-				B834F6E617DCC50200D35A1E /* DetailViewController.h */,
-				B834F6E717DCC50200D35A1E /* DetailViewController.m */,
-				B834F6E817DCC50200D35A1E /* DetailViewController.xib */,
 				B81BE74B17DB614200CD67EC /* SearchViewController.h */,
 				B81BE74C17DB614200CD67EC /* SearchViewController.m */,
 				B81BE74D17DB614200CD67EC /* SearchViewController.xib */,
@@ -261,20 +226,9 @@
 		B81BE76F17DBB19100CD67EC /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				B898D171185FF7020009A1F6 /* PhoneLookup_29.png */,
-				B898D175185FF7020009A1F6 /* PhoneLookup_57.png */,
-				B898D176185FF7020009A1F6 /* PhoneLookup_58.png */,
-				B898D179185FF7020009A1F6 /* PhoneLookup_80.png */,
-				B898D17B185FF7020009A1F6 /* PhoneLookup_114.png */,
-				B898D17C185FF7020009A1F6 /* PhoneLookup_120.png */,
+				B8E179C72105905900A737FB /* MobileLabs_RGB_TM_1536x1044.png */,
 				B8421B7E17DD6AB800DC6438 /* Apple.png */,
 				B8421B8017DD6AB800DC6438 /* Blackberry.png */,
-				B8421B8317DD6AB800DC6438 /* Default-568h@2x.png */,
-				B8421B8417DD6AB800DC6438 /* Default.png */,
-				B8421B8517DD6AB800DC6438 /* Default@2x.png */,
-				B8421B8617DD6AB800DC6438 /* Default~iphone.png */,
-				B8421B8817DD6AB800DC6438 /* MobileLabs_CMYK_TM.png */,
-				B8421B8917DD6AB800DC6438 /* MobileLabs_logo_small.png */,
 				B8421B9217DD6AB800DC6438 /* Windows.png */,
 				B8421B7A17DD6A9A00DC6438 /* Android.png */,
 			);
@@ -284,10 +238,10 @@
 		B834F67317DBEB0100D35A1E /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				B834F67517DBEB4800D35A1E /* MockModeController.h */,
-				B834F67617DBEB4800D35A1E /* MockModeController.m */,
-				B834F67717DBEB4800D35A1E /* ProductXMLHandler.h */,
-				B834F67817DBEB4800D35A1E /* ProductXMLHandler.m */,
+				B8E179BF2104F8A900A737FB /* Product.swift */,
+				B8E179BE2104F8A800A737FB /* PhoneLookup-Bridging-Header.h */,
+				B8E179C12104FEF900A737FB /* ProductXMLParser.swift */,
+				B8E179C321050DBE00A737FB /* Item.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -296,20 +250,8 @@
 			isa = PBXGroup;
 			children = (
 				B834F68917DBFC9000D35A1E /* ProductXml.xml */,
-				B834F67F17DBEBC900D35A1E /* LoginXml.xml */,
 			);
 			name = XML;
-			sourceTree = "<group>";
-		};
-		B834F68217DBED2600D35A1E /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				B834F68317DBED7800D35A1E /* ProductItem.h */,
-				B834F68417DBED7800D35A1E /* ProductItem.m */,
-				B834F68517DBED7800D35A1E /* User.h */,
-				B834F68617DBED7800D35A1E /* User.m */,
-			);
-			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -379,14 +321,18 @@
 				TargetAttributes = {
 					01C6D23E1B5D36A300E8F0E7 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = 3MR3TYB9KU;
 						TestTargetID = B81BE71517DB5E8100CD67EC;
 					};
 					01E2B5811E3F852500188E78 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 3MR3TYB9KU;
 						ProvisioningStyle = Automatic;
 						TestTargetID = B81BE71517DB5E8100CD67EC;
 					};
 					B81BE71517DB5E8100CD67EC = {
+						DevelopmentTeam = 3MR3TYB9KU;
+						LastSwiftMigration = 0940;
 						SystemCapabilities = {
 							com.apple.iOS = {
 								enabled = 1;
@@ -435,28 +381,16 @@
 			files = (
 				B81BE76317DB77B700CD67EC /* SearchListViewController.xib in Resources */,
 				B8421B9417DD6AB800DC6438 /* Apple.png in Resources */,
-				B898D182185FF7020009A1F6 /* PhoneLookup_29.png in Resources */,
-				B8421B9B17DD6AB800DC6438 /* Default@2x.png in Resources */,
+				B84BA69B2102C428000193A1 /* Launch Screen.storyboard in Resources */,
 				B834F68A17DBFC9000D35A1E /* ProductXml.xml in Resources */,
-				B8421B9917DD6AB800DC6438 /* Default-568h@2x.png in Resources */,
-				B8421B9E17DD6AB800DC6438 /* MobileLabs_CMYK_TM.png in Resources */,
-				B898D18D185FF7020009A1F6 /* PhoneLookup_120.png in Resources */,
-				B898D18C185FF7020009A1F6 /* PhoneLookup_114.png in Resources */,
 				B8421BA817DD6AB800DC6438 /* Windows.png in Resources */,
 				B834F69217DC0C2600D35A1E /* ProductViewController.xib in Resources */,
 				B81BE72417DB5E8100CD67EC /* InfoPlist.strings in Resources */,
+				B8E179C82105905900A737FB /* MobileLabs_RGB_TM_1536x1044.png in Resources */,
 				B8421B9617DD6AB800DC6438 /* Blackberry.png in Resources */,
 				B81BE72C17DB5E8100CD67EC /* Images.xcassets in Resources */,
-				B8421B9F17DD6AB800DC6438 /* MobileLabs_logo_small.png in Resources */,
-				B8421B9C17DD6AB800DC6438 /* Default~iphone.png in Resources */,
 				B81BE74F17DB614200CD67EC /* SearchViewController.xib in Resources */,
-				B898D18A185FF7020009A1F6 /* PhoneLookup_80.png in Resources */,
 				B8421B7B17DD6A9A00DC6438 /* Android.png in Resources */,
-				B898D186185FF7020009A1F6 /* PhoneLookup_57.png in Resources */,
-				B8421B9A17DD6AB800DC6438 /* Default.png in Resources */,
-				B834F6EA17DCC50200D35A1E /* DetailViewController.xib in Resources */,
-				B898D187185FF7020009A1F6 /* PhoneLookup_58.png in Resources */,
-				B834F68117DBEBC900D35A1E /* LoginXml.xml in Resources */,
 				B81BE76D17DBB05300CD67EC /* LoginViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -484,16 +418,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8E179C02104F8A900A737FB /* Product.swift in Sources */,
 				B81BE76217DB77B700CD67EC /* SearchListViewController.m in Sources */,
 				B81BE74E17DB614200CD67EC /* SearchViewController.m in Sources */,
-				B834F67B17DBEB4800D35A1E /* MockModeController.m in Sources */,
-				B834F68717DBED7800D35A1E /* ProductItem.m in Sources */,
-				B834F6E917DCC50200D35A1E /* DetailViewController.m in Sources */,
+				B8E179C421050DBE00A737FB /* Item.swift in Sources */,
 				B81BE72617DB5E8100CD67EC /* main.m in Sources */,
 				B834F69317DC0C2600D35A1E /* ProductViewController.m in Sources */,
-				B834F68817DBED7800D35A1E /* User.m in Sources */,
 				B81BE76C17DBB05300CD67EC /* LoginViewController.m in Sources */,
-				B834F67C17DBEB4800D35A1E /* ProductXMLHandler.m in Sources */,
+				B8E179C22104FEF900A737FB /* ProductXMLParser.swift in Sources */,
 				B8421B4F17DD67EA00DC6438 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -528,10 +460,11 @@
 		01C6D2481B5D36A400E8F0E7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 3MR3TYB9KU;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -552,11 +485,12 @@
 		01C6D2491B5D36A400E8F0E7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 3MR3TYB9KU;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -573,6 +507,7 @@
 		01E2B5891E3F852500188E78 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
@@ -580,7 +515,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 3MR3TYB9KU;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -598,6 +533,7 @@
 		01E2B58A1E3F852500188E78 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
@@ -606,7 +542,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 3MR3TYB9KU;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -650,6 +586,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				DEFINES_MODULE = YES;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -703,6 +640,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				DEFINES_MODULE = YES;
 				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -723,14 +661,21 @@
 		B81BE74317DB5E8100CD67EC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEVELOPMENT_TEAM = "";
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 3MR3TYB9KU;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PhoneLookup/PhoneLookup-Prefix.pch";
 				INFOPLIST_FILE = "PhoneLookup/PhoneLookup-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mobilelabsinc.PhoneLookup;
 				PRODUCT_NAME = PhoneLookup;
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "PhoneLookup/PhoneLookup-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -739,15 +684,21 @@
 		B81BE74417DB5E8100CD67EC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEVELOPMENT_TEAM = "";
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 3MR3TYB9KU;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PhoneLookup/PhoneLookup-Prefix.pch";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = "PhoneLookup/PhoneLookup-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mobilelabsinc.PhoneLookup;
 				PRODUCT_NAME = PhoneLookup;
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "PhoneLookup/PhoneLookup-Bridging-Header.h";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
