@@ -10,7 +10,7 @@
 
 @interface SearchViewController : UIViewController <UITextFieldDelegate>{
     UINavigationController *navigation;
-    NSMutableArray *Brand;
+    NSArray *manufacturers;
     UILabel *itemLabel;
     UILabel *manufacturerLabel;
     UILabel *osLabel;

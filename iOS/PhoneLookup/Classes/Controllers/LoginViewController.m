@@ -7,8 +7,6 @@
 //
 
 #import "LoginViewController.h"
-#import "MockModeController.h"
-#import "ProductXMLHandler.h"
 
 @interface LoginViewController ()
 
@@ -52,9 +50,7 @@
     else {
         switchCntl.on=YES;
         username.text=name;
-        username.textColor=[UIColor blackColor];
         password.text=pass;
-        password.textColor=[UIColor blackColor];
     }
 }
 
@@ -66,14 +62,7 @@
 
 - (IBAction) loginAction:(UIButton *)sender
 {
-    NSData * tempData =[MockModeController getMockResponse:@"LoginXml"];
-    ProductXMLHandler *txmlHandler = [[ProductXMLHandler alloc] init];
-    txmlHandler.currentData = [ProductXMLHandler encodeDataToData:tempData];
-    NSArray *userArray=[txmlHandler parseXMLFileAtURL:nil parseError:nil];
-    
-    NSArray *filtered= [userArray filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(username == %@) and (password == %@)",[username.text uppercaseString],[password.text uppercaseString]]];
-    
-    if([filtered count]==0){
+    if(! ([username.text.uppercaseString isEqualToString:@"MOBILELABS"] && [password.text.uppercaseString isEqualToString:@"DEMO"])){
         if ([self.delegate respondsToSelector:@selector(userLoginDidFailWithLoginViewController:)]) {
             [self.delegate userLoginDidFailWithLoginViewController:self];
         }

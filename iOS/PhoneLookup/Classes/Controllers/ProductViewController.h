@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ProductItem.h"
+#import "PhoneLookup-Swift.h"
 
 @interface ProductViewController : UIViewController <UIScrollViewDelegate> {
-    ProductItem *currentItem;
+    Item *currentItem;
     IBOutlet UILabel *productName;
     IBOutlet UILabel *ProductID;
     IBOutlet UILabel *OperatingSystem;
@@ -23,5 +23,5 @@
     IBOutlet UILabel *lblBrand;
     IBOutlet UIImageView *imageView;
 }
-@property (nonatomic,retain) ProductItem *currentItem;
+@property (nonatomic,retain) Item *currentItem;
 @end
