@@ -25,6 +25,7 @@ DerivedData/
 *.perspectivev3
 !default.perspectivev3
 xcuserdata/
+xcworkspace/
 
 ## Other
 *.moved-aside
@@ -222,3 +223,4 @@ Temporary Items
 
 # deviceConnect Properties
 */deviceConnect.properties
+*.xcuserstate
