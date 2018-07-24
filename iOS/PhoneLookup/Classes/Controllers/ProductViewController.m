@@ -11,7 +11,6 @@
 #import "PhoneLookup-Swift.h"
 
 
-
 @implementation ProductViewController
 @synthesize currentItem;
 
@@ -32,6 +31,7 @@
     
     // Release any cached data, images, etc that aren't in use.
 }
+
 
 #pragma mark - View lifecycle
 
@@ -65,13 +65,8 @@
     productDesc.text=currentItem.productDescription;
     productPrice.text=[NSString stringWithFormat:@"Price : %@/Each",currentItem.price];
     productBrand.text=[NSString stringWithFormat:@"Manufacturer : %@",currentItem.manufacturer];
-    if([currentItem.qtyOnHand intValue]==0)
-        QtyOnHand.text=[NSString stringWithFormat:@"Online Quantity : Out of Stock"];
-    else
-        QtyOnHand.text=[NSString stringWithFormat:@"Online Quantity : %@",currentItem.qtyOnHand];
-    //Carrier.text=[NSString stringWithFormat:@"Carrier # %@",currentItem.Carrier];
+    QtyOnHand.text=[NSString stringWithFormat:@"Online Quantity : %@",currentItem.qtyOnHand];
     OperatingSystem.text=[NSString stringWithFormat:@"Operating System : %@",currentItem.operatingSystem];
-    
     
     productDesc.layer.borderWidth = 2.0f;
     productDesc.layer.cornerRadius = 8;
@@ -81,10 +76,6 @@
     imageView.layer.cornerRadius = 10.0;
     
     scrollView.contentSize = CGSizeMake(self.view.frame.size.width,self.view.frame.size.height+frame.size.height-150);
-    
-  //  productBrand.frame=CGRectMake(144,310+frame.size.height +10,50,25);
-  //  lblBrand.frame=CGRectMake(17,310+frame.size.height +10,50,25);
-    
 }
 
 @end

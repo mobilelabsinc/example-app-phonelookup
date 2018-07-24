@@ -32,7 +32,7 @@ import Foundation
         for item in allProducts {
         
             if (manufacturer == "Any" || manufacturer == manufacturer) {
-                if ((inventory == 0 && item.inStock == "Y") || (inventory == 1 && item.inStock == "N") || (inventory == 2)) {
+                if ((inventory == 0) || (inventory == 1 && item.inStock == "Y") || (inventory == 2 && item.inStock == "N")) {
                     if ((android && item.operatingSystem.contains("Android")) || (ios && item.operatingSystem.contains("iOS")) || (blackberry && item.operatingSystem.contains("BlackBerry")) || (windows && item.operatingSystem.contains("Windows"))) {
                         if ((item.productName.lowercased().starts(with: searchValue.lowercased())) || (item.productID.starts(with: searchValue))) {
                             

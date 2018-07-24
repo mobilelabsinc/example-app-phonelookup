@@ -31,27 +31,10 @@
     username.accessibilityIdentifier = @"UsernameTextField";
     lPassword.accessibilityIdentifier = @"PasswordLabel";
     password.accessibilityIdentifier = @"PasswordTextField";
-    lRememberMe.accessibilityIdentifier = @"RememberMeLabel";
-    switchCntl.accessibilityIdentifier = @"RememberMeSwitch";
     bSignIn.accessibilityIdentifier = @"SignInButton";
-    
     
     username.clearButtonMode = UITextFieldViewModeWhileEditing;
     password.clearButtonMode = UITextFieldViewModeWhileEditing;
-    
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSString *name = (NSString *)[userDefaults objectForKey:@"USER"];
-    NSString *pass = (NSString *)[userDefaults objectForKey:@"PASS"];
-    NSString *rme = (NSString *)[userDefaults objectForKey:@"RME"];
-    if(rme==nil || [rme isEqualToString:@"NO"])
-    {
-        switchCntl.on=NO;
-    }
-    else {
-        switchCntl.on=YES;
-        username.text=name;
-        password.text=pass;
-    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -76,23 +59,6 @@
             
         }
         return;
-    }
-    
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    
-    if(switchCntl.on)
-    {
-        [userDefaults setObject:username.text forKey:@"USER"];
-        [userDefaults setObject:password.text forKey:@"PASS"];
-        [userDefaults setObject:@"YES" forKey:@"RME"];
-        
-    }
-    else {
-        [userDefaults setObject:@"" forKey:@"USER"];
-        [userDefaults setObject:@"" forKey:@"PASS"];
-        [userDefaults setObject:@"NO" forKey:@"RME"];
-        username.text=@"";
-        password.text=@"";
     }
     
     if ([self.delegate respondsToSelector:@selector(userDidLoginWithLoginViewController:)]) {
