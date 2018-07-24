@@ -127,7 +127,7 @@ static SearchListViewController *instance;
     
     Instock.tag =2;
     Instock.textAlignment =NSTextAlignmentLeft;
-    if([item.qtyOnHand intValue]==0){
+    if([item.inStock isEqualToString:@"N"]){
         Instock.textColor = [UIColor redColor];
         Instock.text = @"[Out of Stock]";
     }else{

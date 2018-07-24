@@ -14,10 +14,8 @@
             <connections>
                 <outlet property="bSignIn" destination="BKc-Mq-MFN" id="35y-CK-Bxj"/>
                 <outlet property="lPassword" destination="gnV-2O-ay1" id="DMu-8x-X0E"/>
-                <outlet property="lRememberMe" destination="JRw-yh-mE0" id="3f9-Gb-MZn"/>
                 <outlet property="luserName" destination="h3A-bW-lWh" id="OE5-xA-Mpf"/>
                 <outlet property="password" destination="QOf-Fj-TPc" id="2cx-jp-zEI"/>
-                <outlet property="switchCntl" destination="aCL-C1-0Et" id="HPX-xC-hew"/>
                 <outlet property="username" destination="nFy-fk-Njz" id="6XR-0Q-Yi1"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
@@ -35,11 +33,11 @@
                     </accessibility>
                 </imageView>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HKI-uD-xd5">
-                    <rect key="frame" x="17" y="97" width="287" height="287"/>
+                    <rect key="frame" x="16" y="139" width="288" height="203"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" text="Password" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="gnV-2O-ay1">
-                            <rect key="frame" x="8" y="89" width="107" height="30"/>
+                            <rect key="frame" x="8" y="86" width="107" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinY="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             <accessibility key="accessibilityConfiguration" label=""/>
@@ -48,7 +46,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" clearsContextBeforeDrawing="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Username" minimumFontSize="10" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="nFy-fk-Njz">
-                            <rect key="frame" x="122" y="44" width="157" height="30"/>
+                            <rect key="frame" x="122" y="41" width="158" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                             <accessibility key="accessibilityConfiguration" label="Enter Username"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -58,7 +56,7 @@
                             </connections>
                         </textField>
                         <textField opaque="NO" clearsContextBeforeDrawing="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Password" minimumFontSize="10" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="QOf-Fj-TPc">
-                            <rect key="frame" x="122" y="91" width="157" height="30"/>
+                            <rect key="frame" x="122" y="88" width="158" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                             <accessibility key="accessibilityConfiguration" label="Enter Password">
                                 <bool key="isElement" value="YES"/>
@@ -69,22 +67,8 @@
                                 <outlet property="delegate" destination="-1" id="uZg-DD-oLU"/>
                             </connections>
                         </textField>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" text="Remember Me" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="JRw-yh-mE0">
-                            <rect key="frame" x="8" y="136" width="138" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinY="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                            <accessibility key="accessibilityConfiguration" label=""/>
-                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                            <color key="textColor" red="0.0" green="0.56078431370000004" blue="0.83529411760000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <switch opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="aCL-C1-0Et">
-                            <rect key="frame" x="229" y="136" width="52" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                            <accessibility key="accessibilityConfiguration" label="Remember Me"/>
-                        </switch>
                         <button opaque="NO" tag="37" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BKc-Mq-MFN">
-                            <rect key="frame" x="43" y="205" width="200" height="35"/>
+                            <rect key="frame" x="43" y="126" width="201" height="35"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                             <accessibility key="accessibilityConfiguration" label="Sign In"/>
                             <fontDescription key="fontDescription" type="system" pointSize="25"/>
@@ -100,7 +84,7 @@
                             </connections>
                         </button>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" text="Username" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="h3A-bW-lWh">
-                            <rect key="frame" x="8" y="44" width="107" height="31"/>
+                            <rect key="frame" x="8" y="41" width="107" height="31"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinY="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             <accessibility key="accessibilityConfiguration" label=""/>
