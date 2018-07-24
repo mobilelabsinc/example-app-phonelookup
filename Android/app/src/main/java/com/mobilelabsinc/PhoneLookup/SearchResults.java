@@ -186,7 +186,7 @@ public class SearchResults extends AppCompatActivity {
 
             TextView inStockView = itemView.findViewById(R.id.list_item_in_stock);
 
-            if (itemHashMap.get("InStock").equals("Y") && !itemHashMap.get("QtyOnHand").equals("0")) {
+            if (itemHashMap.get("InStock").equals("Y")) {
                 inStockView.setTextColor(getResources().getColor(R.color.mobile_labs_gray));
             }
             else {

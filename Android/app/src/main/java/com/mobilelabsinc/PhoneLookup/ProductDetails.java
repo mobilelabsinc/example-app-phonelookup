@@ -37,14 +37,7 @@ public class ProductDetails extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
-            String itemName1 = bundle.getString("ItemName");
-            String description1 = bundle.getString("Description");
-            String price1 = bundle.getString("Price");
-            String qtyOnHand1 = bundle.getString("QtyOnHand");
-            if (qtyOnHand1 != null && qtyOnHand1.equals("0")) qtyOnHand1 = "Out of stock";
-            String itemId = bundle.getString("ItemID");
-            String manufacturer1 = bundle.getString("Manufacturer");
-            String operatingSystem = bundle.getString("OperatingSystem");
+            String bundleOS = bundle.getString("OperatingSystem");
 
             TextView itemName = findViewById(R.id.product_details_item_name);
             TextView description = findViewById(R.id.product_details_description);
@@ -55,33 +48,33 @@ public class ProductDetails extends AppCompatActivity {
             TextView operationSystem = findViewById(R.id.product_details_operating_system);
 
             //Set Text Values
-            itemID.setText(itemId);
-            manufacturer.setText(manufacturer1);
-            operationSystem.setText(operatingSystem);
-            itemName.setText(itemName1);
-            description.setText(description1);
+            itemID.setText(bundle.getString("ItemID"));
+            manufacturer.setText(bundle.getString("Manufacturer"));
+            operationSystem.setText(bundleOS);
+            itemName.setText(bundle.getString("ItemName"));
+            description.setText(bundle.getString("Description"));
 
             //Set the price
             Currency currency = Currency.getInstance(Locale.getDefault());
             String symbol = currency.getSymbol();
-            price.setText(getString(R.string.product_details_price_units, symbol, price1));
-            qtyOnHand.setText(qtyOnHand1);
+            price.setText(getString(R.string.product_details_price_units, symbol, bundle.getString("Price")));
+            qtyOnHand.setText(bundle.getString("QtyOnHand"));
 
             //Set the operating system image
             ImageView operatingSystemImageView = findViewById(R.id.product_details_icon);
-            if (operatingSystem != null && operatingSystem.startsWith("BlackBerry")) {
+            if (bundleOS != null && bundleOS.startsWith("BlackBerry")) {
                 Drawable icon = getResources().getDrawable(R.drawable.bb_item);
                 operatingSystemImageView.setImageDrawable(icon);
             }
-            if (operatingSystem != null && operatingSystem.startsWith("Android")) {
+            if (bundleOS != null && bundleOS.startsWith("Android")) {
                 Drawable icon = getResources().getDrawable(R.drawable.and_item);
                 operatingSystemImageView.setImageDrawable(icon);
             }
-            if (operatingSystem != null && operatingSystem.startsWith("iOS")) {
+            if (bundleOS != null && bundleOS.startsWith("iOS")) {
                 Drawable icon = getResources().getDrawable(R.drawable.ios_item);
                 operatingSystemImageView.setImageDrawable(icon);
             }
-            if (operatingSystem != null && operatingSystem.startsWith("Windows")) {
+            if (bundleOS != null && bundleOS.startsWith("Windows")) {
                 Drawable icon = getResources().getDrawable(R.drawable.win_item);
                 operatingSystemImageView.setImageDrawable(icon);
             }
