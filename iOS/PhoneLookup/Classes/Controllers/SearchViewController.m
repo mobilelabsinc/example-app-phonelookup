@@ -96,20 +96,19 @@ static SearchViewController *instance;
 
 - (IBAction)search:(id)sender
 {
-    
+    //Alert if no operating is set. Required to have operating system for search
     if((self.androidSwitch.isOn == NO) && (self.blackberrySwitch.isOn == NO)
        && (self.iosSwitch.isOn == NO) && (self.windowsSwitch.isOn == NO))
     {
-        
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error!" message:@"Invalid Selection Criteria" preferredStyle:UIAlertControllerStyleAlert];
         [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
         [self presentViewController:alert animated:YES completion:nil];
         
         self.currentAlertController = alert;
 		return;
-        
     }
     
+    //Return an array of matching product items
     Product *product = [[Product alloc] init];
     NSArray *productArray = [product getProductsWithSearchValue:self.itemTextField.text manufacturer:self.manufacturerTextField.text ios:self.iosSwitch.isOn android:self.androidSwitch.isOn blackberry:self.blackberrySwitch.isOn windows:self.windowsSwitch.isOn inventory:self.inventorySegment.selectedSegmentIndex];
     
@@ -124,7 +123,6 @@ static SearchViewController *instance;
         
         return;
     }
-    
     
     SearchListViewController *searchListController = [[SearchListViewController alloc] initWithNibName:@"SearchListViewController" bundle:nil];
     
@@ -147,13 +145,12 @@ static SearchViewController *instance;
 
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
-    return [manufacturers objectAtIndex:row];
+        return manufacturers[row];
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-	self.manufacturerTextField.text = [NSString stringWithFormat:@"%@",[manufacturers objectAtIndex:row]];
-	[self.pickerView reloadAllComponents];
+	self.manufacturerTextField.text = manufacturers[row];
 }
 
 
