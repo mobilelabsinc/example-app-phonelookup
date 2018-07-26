@@ -48,7 +48,6 @@ static SearchViewController *instance;
 	// Do any additional setup after loading the view from its nib.
     [self.itemTextField setText:@""];
     [self.manufacturerTextField setText:[NSString stringWithFormat:@"%@",[manufacturers objectAtIndex:1]]];
-    [self.manufacturerTextField setInputAccessoryView:self.pickerToolbar];
     [self.manufacturerTextField setInputView:self.pickerView];
     [self.pickerView selectRow:1 inComponent:0 animated:YES];
     [self.androidSwitch setOn:NO];
@@ -151,6 +150,7 @@ static SearchViewController *instance;
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
 	self.manufacturerTextField.text = manufacturers[row];
+    [self.manufacturerTextField resignFirstResponder];
 }
 
 

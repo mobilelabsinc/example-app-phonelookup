@@ -16,12 +16,10 @@
             <connections>
                 <outlet property="androidSwitch" destination="HHO-C3-BVM" id="a60-mA-Obs"/>
                 <outlet property="blackberrySwitch" destination="fRh-7k-dxc" id="y5f-E8-iys"/>
-                <outlet property="doneBarButtonItem" destination="pfi-v1-GAp" id="J6L-3g-ehE"/>
                 <outlet property="inventorySegment" destination="I6n-ig-TLj" id="LYZ-EO-mad"/>
                 <outlet property="iosSwitch" destination="46d-sx-iqY" id="5cR-b1-jO9"/>
                 <outlet property="itemTextField" destination="Ikn-Gt-54V" id="NB6-Ny-BE0"/>
                 <outlet property="manufacturerTextField" destination="Adh-7l-lHv" id="1Xy-3r-2pj"/>
-                <outlet property="pickerToolbar" destination="5mP-Q2-shp" id="syA-Q7-fyX"/>
                 <outlet property="pickerView" destination="QFv-cE-oOJ" id="3cM-Nu-Vwx"/>
                 <outlet property="searchButton" destination="qaO-Dd-YNa" id="Pbj-V4-ZMu"/>
                 <outlet property="view" destination="1" id="3"/>
@@ -273,20 +271,6 @@
             <viewLayoutGuide key="safeArea" id="Oxb-lW-Nnj"/>
             <point key="canvasLocation" x="32" y="52"/>
         </view>
-        <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="5mP-Q2-shp">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-            <viewLayoutGuide key="safeArea" id="0vk-hb-jw4"/>
-            <items>
-                <barButtonItem style="plain" systemItem="flexibleSpace" id="JPU-5T-Jlg"/>
-                <barButtonItem systemItem="done" id="pfi-v1-GAp">
-                    <connections>
-                        <action selector="doneEditing:" destination="-1" id="8KD-mI-wgj"/>
-                    </connections>
-                </barButtonItem>
-            </items>
-            <point key="canvasLocation" x="32" y="408"/>
-        </toolbar>
         <pickerView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="QFv-cE-oOJ" userLabel="Picker">
             <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -296,6 +280,7 @@
                 <outlet property="dataSource" destination="-1" id="yDV-qY-gp7"/>
                 <outlet property="delegate" destination="-1" id="fBJ-N9-aaS"/>
             </connections>
+            <point key="canvasLocation" x="430" y="115"/>
         </pickerView>
     </objects>
 </document>
