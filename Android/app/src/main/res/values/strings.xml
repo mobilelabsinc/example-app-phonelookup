@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Phone Lookup</string>
+    <string name="app_name">PhoneLookup</string>
     <string name="list_item_os_icon">Operating System Icon</string>
     <string name="login_logo_image_description">Mobile Labs logo</string>
     <string name="login_password_edit_hint">Enter Password</string>
