@@ -1,7 +1,7 @@
 # example-app-phonelookup
 Example applications built for iOS and Android
 
-##iOS
+## iOS
 
 To build the iOS app, open up the project with Xcode and build and archive it. You will need to select a development team for the projects.
 
