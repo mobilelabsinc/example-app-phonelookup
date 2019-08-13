@@ -5,6 +5,9 @@
 		android:title="@string/menu_item_search"
 		android:icon="@drawable/menu_search" />
 	<item
+		android:id="@+id/flag-secure"
+		android:title="@string/menu_item_flag_secure" />
+	<item
 		android:id="@+id/logout"
 		android:title="@string/menu_item_log_out"
 		android:icon="@drawable/menu_logout" />

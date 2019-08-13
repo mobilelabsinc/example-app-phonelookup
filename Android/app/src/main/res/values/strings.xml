@@ -9,6 +9,7 @@
     <string name="login_username_edit_hint">Enter Username</string>
     <string name="menu_item_log_out">Log Out</string>
     <string name="menu_item_search">Search</string>
+    <string name="menu_item_flag_secure">Flag Secure</string>
     <string name="product_details_description_label_text">Description:</string>
     <string name="product_details_description_placeholder">Description</string>
     <string name="product_details_icon_description">Operating System Icon</string>

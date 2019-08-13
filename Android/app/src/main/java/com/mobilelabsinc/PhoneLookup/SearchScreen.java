@@ -64,6 +64,8 @@ public class SearchScreen extends AppCompatActivity {
         intentFilter.addAction("com.package.ACTION_LOGOUT");
         registerReceiver(Logout, intentFilter);
 
+
+
         osAndroidCheckbox = findViewById(R.id.search_os_android_checkbox);
         osWindowsCheckbox = findViewById(R.id.search_os_windows_checkbox);
         osIosCheckbox = findViewById(R.id.search_os_ios_checkbox);
@@ -181,16 +183,22 @@ public class SearchScreen extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         Intent intent = new Intent();
-
+        // TODO Auto-generated method stub
         switch (item.getItemId()) {
             case R.id.search:
+                intent.setClass(mContext, SearchScreen.class);
+                startActivity(intent);
+                return true;
+            case R.id.flag_secure:
+                intent.setClass(mContext, FlagSecure.class);
+                startActivity(intent);
                 return true;
             case R.id.logout:
                 intent.setClass(mContext, Login.class);
                 startActivity(intent);
                 Intent broadcastIntent = new Intent();
                 broadcastIntent.setAction("com.package.ACTION_LOGOUT");
-                sendBroadcast(broadcastIntent);
+                this.sendBroadcast(broadcastIntent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
